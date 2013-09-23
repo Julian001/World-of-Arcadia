@@ -112,6 +112,6 @@ public class ItemArcadiaBag extends Item
 	@SideOnly(Side.CLIENT)
 	public void registerIcons(IconRegister iconRegister)
 	{
-	this.itemIcon = iconRegister.registerIcon("inventoryitemmod:" + this.getUnlocalizedName().substring(5));
+	this.itemIcon = iconRegister.registerIcon("arcadia:" + this.getUnlocalizedName().substring(5));
 	}
 }

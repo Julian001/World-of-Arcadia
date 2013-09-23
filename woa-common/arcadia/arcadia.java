@@ -142,7 +142,8 @@ public class arcadia
        private static int modGuiIndex = 0;
 
        /** Set our custom inventory Gui index to the next available Gui index */
-       public static final int ItemInventoryGuiIndex = modGuiIndex++;
+       //public static final int ItemInventoryGuiIndex = modGuiIndex++;
+       public static final int ItemInventoryGuiIndex = 1;
        
        
        
