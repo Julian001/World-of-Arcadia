@@ -164,6 +164,9 @@ public class arcadia
        public static Block blockSapphire;
        public static Block blockBronze;
        
+       //----RedRock----//
+       public static Block redRock;
+       
        //----Enchantments----//
        public static final Enchantment knockup = new EnchantmentKnockup(52, 1);
 	   public static final Enchantment stun = new EnchantmentStun(53, 1);
@@ -315,6 +318,9 @@ public class arcadia
     	   blockSapphire = new BlockArcadia(515, Material.iron).setHardness(6.0F).setResistance(10.0F).setStepSound(Block.soundMetalFootstep).setUnlocalizedName("blockSapphire");
     	   blockBronze = new BlockArcadia(516, Material.iron).setHardness(5.0F).setResistance(10.0F).setStepSound(Block.soundMetalFootstep).setUnlocalizedName("blockBronze");
     	   
+    	   //----RedRock----//
+    	   redRock = new BlockArcadiaRedRock(530, Material.rock).setUnlocalizedName("redRock");
+    	   
     	   //----Anvil----//
     	   anvilArcadia = new BlockAnvilArcadia(600).setHardness(2.5F).setResistance(20.0F).setStepSound(Block.soundAnvilFootstep).setUnlocalizedName("anvil");
     	   NetworkRegistry.instance().registerGuiHandler(this, guiHandlerArcadia);
@@ -376,6 +382,9 @@ public class arcadia
     	   GameRegistry.registerBlock(blockRuby, modid + blockRuby.getUnlocalizedName().substring(5));
     	   GameRegistry.registerBlock(blockSapphire, modid + blockSapphire.getUnlocalizedName().substring(5));
     	   GameRegistry.registerBlock(blockBronze, modid + blockBronze.getUnlocalizedName().substring(5));
+    	   
+    	   //----RedRock----//
+    	   GameRegistry.registerBlock(redRock, ItemBlockArcadiaRedRock.class, modid + (redRock.getUnlocalizedName().substring(5)));
     	   
     	   GameRegistry.registerBlock(anvilArcadia, modid + anvilArcadia.getUnlocalizedName().substring(5));
     	   
@@ -466,6 +475,13 @@ public class arcadia
     	   LanguageRegistry.addName(blockSapphire, "\u00a7bBlock of Sapphire");
     	   LanguageRegistry.addName(blockBronze, "Block of Bronze");
     	   
+    	   LanguageRegistry.addName(new ItemStack(redRock, 1, 0), "Red Rock");
+	   	   LanguageRegistry.addName(new ItemStack(redRock, 1, 1), "Red Rock Cobblestone");
+	   	   LanguageRegistry.addName(new ItemStack(redRock, 1, 2), "Red Rock Brick");
+	   	   LanguageRegistry.addName(new ItemStack(redRock, 1, 3), "Red Rock Brick Carved");
+	   	   LanguageRegistry.addName(new ItemStack(redRock, 1, 4), "Red Rock Brick Cracked");
+    	   
+	   	   
     	   LanguageRegistry.addName(anvilArcadia, "Anvil Arcadia");
     	       	   
     	       	   

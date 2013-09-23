@@ -268,6 +268,17 @@ public class ArcadiaCrafting {
 		});
 		GameRegistry.addSmelting(Item.egg.itemID, new ItemStack(arcadia.friedEgg), 0.3F);
 		
+		//----RedRock----//
+		FurnaceRecipes.smelting().addSmelting(arcadia.redRock.blockID, 1, new ItemStack(arcadia.redRock, 1, 0), 0.1F);
+		GameRegistry.addRecipe(new ItemStack(arcadia.redRock, 4, 2), new Object[]{
+			"XX",
+			"XX",
+			'X' , new ItemStack(arcadia.redRock, 1, 0)		});
+		GameRegistry.addRecipe(new ItemStack(arcadia.redRock, 4, 3), new Object[]{
+			"XX",
+			"XX",
+			'X' , new ItemStack(arcadia.redRock, 1, 2)		});
+		
     }
 	/*GameRegistry.addShapelessRecipe(new ItemStack(Tutorial.tutorialBlock), new Object[]{
         new ItemStack(Item.diamond), new ItemStack(Block.stone), new ItemStack(Item.dyePowder, 1, 15)
