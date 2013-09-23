@@ -1,13 +1,9 @@
 package arcadia;
 
-import java.util.List;
-
 import net.minecraft.command.CommandBase;
 import net.minecraft.command.ICommandSender;
 import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.entity.player.EntityPlayerMP;
 import net.minecraft.potion.Potion;
-import net.minecraft.potion.PotionEffect;
 
 public class CommandHealArcadia extends CommandBase {
 

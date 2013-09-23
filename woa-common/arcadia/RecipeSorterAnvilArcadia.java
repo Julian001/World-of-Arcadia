@@ -1,6 +1,7 @@
 package arcadia;
 
 import java.util.Comparator;
+
 import net.minecraft.item.crafting.IRecipe;
 
 public class RecipeSorterAnvilArcadia implements Comparator
