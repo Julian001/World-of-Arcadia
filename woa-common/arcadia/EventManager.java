@@ -29,8 +29,19 @@ public class EventManager implements IWorldGenerator{
 
   private void generateSurface(World world, Random random, int x, int z)
   {
+       this.addOreSpawn(arcadia.oreCopper, world, random, x , z, 16, 16,
+    		   3 + random.nextInt(2), 6 , 40, 70);
+       this.addOreSpawn(arcadia.oreTin, world, random, x , z, 16, 16,
+    		   3 + random.nextInt(1), 5 , 30, 60);
+       this.addOreSpawn(arcadia.oreLead, world, random, x , z, 16, 16,
+    		   2 + random.nextInt(1), 4 , 20, 50);
        this.addOreSpawn(arcadia.oreSilver, world, random, x , z, 16, 16,
-    		   3 + random.nextInt(3), 5 , 15, 50);
+    		   2 + random.nextInt(2), 3 , 0, 40);
+       this.addOreSpawn(arcadia.oreRuby, world, random, x , z, 16, 16,
+    		   1 + random.nextInt(2), 2 , 0, 10);
+       this.addOreSpawn(arcadia.oreSapphire, world, random, x , z, 16, 16,
+    		   1 + random.nextInt(3), 2 , 10, 20);
+       
   }
 
   private void generateNether(World world, Random random, int x, int z)

@@ -195,6 +195,8 @@ public class arcadia
 	   public static Item potionBlindness;
 	   public static Item potionWither;
 	   
+	   public static Item potionTest;
+	   
 	   public static final String waterBreathing = "-0+1-2-3&4-4+13";
 	   //Absorption,Resistence,Hunger,Saturation PotionHelper
 	   
@@ -291,6 +293,8 @@ public class arcadia
     	   potionBlindness = new ItemArcadiaPotion(1105, Potion.blindness.id, 180, 0).setUnlocalizedName("potionBlindness");
     	   potionWither = new ItemArcadiaPotion(1106, Potion.wither.id, 45, 0).setUnlocalizedName("potionWither");
     	   gemRuby.setPotionEffect(waterBreathing);
+    	   
+    	   potionTest = new ItemArcadiaPotions(1107).setUnlocalizedName("potion");
     	   
     	   //----Crossbows----//
     	   crossbowWood = new ItemCrossbowArcadia(1110).setUnlocalizedName("crossbow");

@@ -17,6 +17,8 @@ public class GuiBagArcadia extends GuiContainer
 	* These are used for drawing the player model. */
 	private float xSize_lo;
 	private float ySize_lo;
+	private int xSize = 220;
+	private int ySize = 220;
 	
 	/**
 	ResourceLocation takes 2 parameters: ModId, path to texture at the location:
@@ -55,8 +57,9 @@ public class GuiBagArcadia extends GuiContainer
 	protected void drawGuiContainerForegroundLayer(int par1, int par2)
 	{
 	         String s = this.inventory.isInvNameLocalized() ? this.inventory.getInvName() : I18n.getString(this.inventory.getInvName());
-	         this.fontRenderer.drawString(s, this.xSize / 2 - this.fontRenderer.getStringWidth(s) / 2, 0, 4210752);
-	         this.fontRenderer.drawString(I18n.getString("container.inventory"), 26, this.ySize - 96 + 4, 4210752);
+	         //this.fontRenderer.drawString(s, this.xSize / 2 - this.fontRenderer.getStringWidth(s) / 2, 0, 4210752);
+	         this.fontRenderer.drawString("Huge Bag", 8, -30, 4210752);
+	         this.fontRenderer.drawString(I18n.getString("container.inventory"), 8, 90, 4210752);
 	}
 	
 	/**
@@ -66,11 +69,14 @@ public class GuiBagArcadia extends GuiContainer
 	{
 	         GL11.glColor4f(1.0F, 1.0F, 1.0F, 1.0F);
 	         this.mc.renderEngine.bindTexture(iconLocation);
-	         int k = (this.width - this.xSize) / 2;
-	         int l = (this.height - this.ySize) / 2;
+	         //int k = (this.width - this.xSize) / 2;
+	         //int l = (this.height - this.ySize) / 2;
+	         int k = 125;
+	         int l = 0;
 	         this.drawTexturedModalRect(k, l, 0, 0, this.xSize, this.ySize);
-	         int i1;
-	         drawPlayerModel(k + 51, l + 75, 30, (float)(k + 51) - this.xSize_lo, (float)(l + 75 - 50) - this.ySize_lo, this.mc.thePlayer);
+	         //int i1;
+	         //drawPlayerModel(k + 51, l + 75, 30, (float)(k + 51) - this.xSize_lo, (float)(l + 75 - 50) - this.ySize_lo, this.mc.thePlayer);
+	         drawPlayerModel(k - 21, l + 135, 30, (float)(k + 51) - this.xSize_lo, (float)(l + 75 - 50) - this.ySize_lo, this.mc.thePlayer);
 	}
 	
 	/**
