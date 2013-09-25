@@ -40,6 +40,7 @@ public class CommandHealArcadia extends CommandBase {
 		player.removePotionEffect(Potion.poison.id);
 		player.removePotionEffect(Potion.weakness.id);
 		player.removePotionEffect(Potion.moveSlowdown.id);
+		player.removePotionEffect(Potion.hunger.id);
 		//player.setAbsorptionAmount(10);
 		//füttern?
 		player.addChatMessage("\u00a7aPlayer healed");

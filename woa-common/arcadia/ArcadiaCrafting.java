@@ -263,7 +263,7 @@ public class ArcadiaCrafting {
 			'X' , arcadia.gemSapphire		});
 		
 		
-		GameRegistry.addRecipe(new ItemStack(arcadia.potionHaste), new Object[] {
+		GameRegistry.addRecipe(new ItemStack(arcadia.potionArcadia, 1, 0), new Object[] {
 			"X", 'X', new ItemStack(Item.potion,1,16)
 		});
 		GameRegistry.addSmelting(Item.egg.itemID, new ItemStack(arcadia.friedEgg), 0.3F);

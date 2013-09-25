@@ -49,7 +49,7 @@ public ContainerBagArcadia(EntityPlayer par1Player, InventoryPlayer inventoryPla
 	// from being stored within itself, but if you want to allow that and
 	// you followed my advice at the end of the above step, then you
 	// could get away with using the vanilla Slot class
-	this.addSlotToContainer(new SlotArcadiaBag(this.inventory, i, 80 + (18 * (int)(i/4)), 8 + (18*(i%4))));
+	this.addSlotToContainer(new SlotArcadiaBag(this.inventory, i, 8 + (18 * (int)(i/6)), -8 + (18*(i%6))));
 	}
 	
 	// If you want, you can add ARMOR SLOTS here as well, but you need to
@@ -67,14 +67,14 @@ public ContainerBagArcadia(EntityPlayer par1Player, InventoryPlayer inventoryPla
 	{
 	for (int j = 0; j < 9; ++j)
 	{
-	this.addSlotToContainer(new Slot(inventoryPlayer, j + i * 9 + 9, 8 + j * 18, 84 + i * 18));
+	this.addSlotToContainer(new Slot(inventoryPlayer, j + i * 9 + 9, 8 + j * 18, 114 + i * 18));
 	}
 	}
 	
 	// PLAYER ACTION BAR - uses default locations for standard action bar texture file
 	for (i = 0; i < 9; ++i)
 	{
-	this.addSlotToContainer(new Slot(inventoryPlayer, i, 8 + i * 18, 142));
+	this.addSlotToContainer(new Slot(inventoryPlayer, i, 8 + i * 18, 172));
 	}
 	}
 	

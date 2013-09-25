@@ -11,7 +11,7 @@ public class InventoryBagArcadia implements IInventory
 	private String name = "Inventory Item";
 	
 	/** Defining your inventory size this way is handy */
-	public static final int INV_SIZE = 8;
+	public static final int INV_SIZE = 54;
 	
 	/** Inventory's size must be same as number of slots you add to the Container class */
 	ItemStack[] inventory = new ItemStack[INV_SIZE];

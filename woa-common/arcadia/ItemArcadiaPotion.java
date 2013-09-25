@@ -27,7 +27,7 @@ public class ItemArcadiaPotion extends ItemFood{
 		super(par1, par2, par3);
 		this.setMaxStackSize(1);
 		this.setAlwaysEdible();
-		this.setCreativeTab(arcadia.tabArcadiaPotions);	
+		//this.setCreativeTab(arcadia.tabArcadiaPotions);	
 		potionId = id;
 		potionDuration = dur;
 		potionAmplifier = amp;
@@ -66,7 +66,7 @@ public class ItemArcadiaPotion extends ItemFood{
         return EnumAction.drink;
     }
 	
-	public void addInformation(ItemStack stack, EntityPlayer player, List list, boolean i)
+	/**public void addInformation(ItemStack stack, EntityPlayer player, List list, boolean i)
 	{
 		if (stack.itemID == new ItemStack(arcadia.potionHaste).itemID) {
 			list.add("Haste (3:00)");
@@ -111,7 +111,7 @@ public class ItemArcadiaPotion extends ItemFood{
 			list.add("\u00A7c-0.5 Hearts per Second");
 		}
 	
-	}
+	}**/
 		
 	@SideOnly(Side.CLIENT)
 	public void registerIcons(IconRegister par1IconRegister)

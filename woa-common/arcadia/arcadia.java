@@ -1,6 +1,7 @@
 package arcadia;
 
 import net.minecraft.block.Block;
+import net.minecraft.block.BlockStairs;
 import net.minecraft.block.material.Material;
 import net.minecraft.command.ICommand;
 import net.minecraft.creativetab.CreativeTabs;
@@ -139,7 +140,7 @@ public class arcadia
        public static Item bagEnder;
        
        /** This is used to keep track of GUIs that we make*/
-       private static int modGuiIndex = 0;
+       //private static int modGuiIndex = 0;
 
        /** Set our custom inventory Gui index to the next available Gui index */
        //public static final int ItemInventoryGuiIndex = modGuiIndex++;
@@ -167,6 +168,8 @@ public class arcadia
        
        //----RedRock----//
        public static Block redRock;
+       public static Block stairRedRockCobble;
+       public static Block stairRedRockBrick;
        
        //----Enchantments----//
        public static final Enchantment knockup = new EnchantmentKnockup(52, 1);
@@ -183,19 +186,20 @@ public class arcadia
 	   public static Achievement achievementShinyThingsArcadia;
 	   
 	   //----Commands----/
-	   public static final ICommand commandHeal = new CommandHealArcadia();;
-	   public static final ICommand commandEnderchest = new CommandEnderChest(); 
+	   public static final ICommand commandHeal = new CommandHealArcadia();
+	   public static final ICommand commandEnderchest = new CommandEnderChest();
+	   public static final ICommand commandDay = new CommandDayArcadia();
 	   
 	   //----Potions----//
-	   public static Item potionHaste;
+	   /*public static Item potionHaste;
 	   public static Item potionMiningFatigue;
 	   public static Item potionJumpBoost;
 	   public static Item potionNausea;
 	   public static Item potionWaterBreathing;
 	   public static Item potionBlindness;
-	   public static Item potionWither;
+	   public static Item potionWither;*/
 	   
-	   public static Item potionTest;
+	   public static Item potionArcadia;
 	   
 	   public static final String waterBreathing = "-0+1-2-3&4-4+13";
 	   //Absorption,Resistence,Hunger,Saturation PotionHelper
@@ -217,7 +221,7 @@ public class arcadia
     	   tabArcadiaItems = new CreativeTabs("tabArcadiaItems") { public ItemStack getIconItemStack() {
                        return new ItemStack(ingotSilver, 1, 0);}};
            tabArcadiaPotions = new CreativeTabs("tabArcadiaPotions") { public ItemStack getIconItemStack() {
-    	                   return new ItemStack(potionHaste, 1, 0);}};
+    	                   return new ItemStack(potionArcadia, 1, 0);}};
     	   
 	                   
 	       //----Ingots----//
@@ -285,16 +289,16 @@ public class arcadia
     	   bootsSapphire = new ItemArcadiaArmor(1093, armorSAPPHIRE, ModLoader.addArmor("Sapphire"), 3).setUnlocalizedName("bootsSapphire");
     	   
     	   //----Potions----//
-    	   potionHaste = new ItemArcadiaPotion(1100, Potion.digSpeed.id, 180, 0).setUnlocalizedName("potionHaste");
+    	   /*potionHaste = new ItemArcadiaPotion(1100, Potion.digSpeed.id, 180, 0).setUnlocalizedName("potionHaste");
     	   potionMiningFatigue = new ItemArcadiaPotion(1101, Potion.digSlowdown.id, 180, 0).setUnlocalizedName("potionMiningFatigue");
     	   potionJumpBoost = new ItemArcadiaPotion(1102, Potion.jump.id, 180, 0).setUnlocalizedName("potionJumpBoost");
     	   potionNausea = new ItemArcadiaPotion(1103, Potion.confusion.id, 180, 0).setUnlocalizedName("potionNausea");
     	   potionWaterBreathing = new ItemArcadiaPotion(1104, Potion.waterBreathing.id, 180, 0).setPotionEffect(Potion.waterBreathing.id, 180, 0, 1F).setUnlocalizedName("potionWaterBreathing");
     	   potionBlindness = new ItemArcadiaPotion(1105, Potion.blindness.id, 180, 0).setUnlocalizedName("potionBlindness");
     	   potionWither = new ItemArcadiaPotion(1106, Potion.wither.id, 45, 0).setUnlocalizedName("potionWither");
-    	   gemRuby.setPotionEffect(waterBreathing);
+    	   gemRuby.setPotionEffect(waterBreathing);*/
     	   
-    	   potionTest = new ItemArcadiaPotions(1107).setUnlocalizedName("potion");
+    	   potionArcadia = new ItemArcadiaPotions(1107).setUnlocalizedName("potion");
     	   
     	   //----Crossbows----//
     	   crossbowWood = new ItemCrossbowArcadia(1110).setUnlocalizedName("crossbow");
@@ -304,7 +308,8 @@ public class arcadia
     	   
     	   //----Bags----//
     	   bagEnder = new ItemEnderBagArcadia(1121).setUnlocalizedName("bagEnder");
-    	   bagHuge = new ItemArcadiaBag(1122).setUnlocalizedName("bagHuge");
+    	   bagMedium = new ItemArcadiaBagMedium(1122).setUnlocalizedName("bagMedium");
+    	   bagHuge = new ItemArcadiaBag(1123).setUnlocalizedName("bagHuge");
     	   
     	   //----Ores----//
     	   oreSilver = new BlockArcadia(500, Material.rock).setHardness(3.0F).setResistance(5.0F).setStepSound(Block.soundStoneFootstep).setUnlocalizedName("oreSilver");
@@ -324,7 +329,9 @@ public class arcadia
     	   blockBronze = new BlockArcadia(516, Material.iron).setHardness(5.0F).setResistance(10.0F).setStepSound(Block.soundMetalFootstep).setUnlocalizedName("blockBronze");
     	   
     	   //----RedRock----//
-    	   redRock = new BlockArcadiaRedRock(530, Material.rock).setUnlocalizedName("redRock");
+    	   redRock = new BlockArcadiaRedRock(531, Material.rock).setUnlocalizedName("redRock");
+    	   //stairRedRockCobble = new BlockArcadiaStairs(531, redRock, 1).setUnlocalizedName("stairRedRockCobble");
+    	   //stairRedRockBrick = new BlockArcadiaStairs(532, redRock, 2).setUnlocalizedName("stairRedRockBrick");
     	   
     	   //----Anvil----//
     	   anvilArcadia = new BlockAnvilArcadia(600).setHardness(2.5F).setResistance(20.0F).setStepSound(Block.soundAnvilFootstep).setUnlocalizedName("anvil");
@@ -368,6 +375,7 @@ public class arcadia
        public void serverLoad(FMLServerStartingEvent event) {
     	   event.registerServerCommand(new CommandHealArcadia());
     	   event.registerServerCommand(new CommandEnderChest());
+    	   event.registerServerCommand(new CommandDayArcadia());
        }
        
        private void registerBlocks(){
@@ -390,6 +398,9 @@ public class arcadia
     	   
     	   //----RedRock----//
     	   GameRegistry.registerBlock(redRock, ItemBlockArcadiaRedRock.class, modid + (redRock.getUnlocalizedName().substring(5)));
+    	   //GameRegistry.registerBlock(stairRedRockCobble, modid + stairRedRockCobble.getUnlocalizedName().substring(5));
+    	   //GameRegistry.registerBlock(stairRedRockBrick, modid + stairRedRockBrick.getUnlocalizedName().substring(5));
+    	   
     	   
     	   GameRegistry.registerBlock(anvilArcadia, modid + anvilArcadia.getUnlocalizedName().substring(5));
     	   
@@ -448,19 +459,42 @@ public class arcadia
 		   LanguageRegistry.addName(bootsRuby, "\u00a7cRuby Boots");
 		   LanguageRegistry.addName(bootsSapphire, "\u00a7bSapphire Boots");
 		   
-		   LanguageRegistry.addName(potionHaste, "Potion of Haste");
+		   /*LanguageRegistry.addName(potionHaste, "Potion of Haste");
 		   LanguageRegistry.addName(potionMiningFatigue, "Potion of Dullness");
 		   LanguageRegistry.addName(potionJumpBoost, "Potion of Leaping");
 		   LanguageRegistry.addName(potionNausea, "Potion of Nausea");
 		   LanguageRegistry.addName(potionWaterBreathing, "Potion of Water Breathing");
 		   LanguageRegistry.addName(potionBlindness, "Potion of Blindness");
-		   LanguageRegistry.addName(potionWither, "Potion of Decay");
+		   LanguageRegistry.addName(potionWither, "Potion of Decay");*/
+		   
+		   LanguageRegistry.addName(new ItemStack(potionArcadia, 1,  0), "Potion of Haste");
+		   LanguageRegistry.addName(new ItemStack(potionArcadia, 1,  1), "Potion of Haste");
+		   LanguageRegistry.addName(new ItemStack(potionArcadia, 1,  2), "Potion of Haste");
+		   LanguageRegistry.addName(new ItemStack(potionArcadia, 1,  3), "Potion of Dullness");
+		   LanguageRegistry.addName(new ItemStack(potionArcadia, 1,  4), "Potion of Dullness");
+		   LanguageRegistry.addName(new ItemStack(potionArcadia, 1,  5), "Potion of Dullness");
+		   LanguageRegistry.addName(new ItemStack(potionArcadia, 1,  6), "Potion of Leaping");
+		   LanguageRegistry.addName(new ItemStack(potionArcadia, 1,  7), "Potion of Leaping");
+		   LanguageRegistry.addName(new ItemStack(potionArcadia, 1,  8), "Potion of Leaping");
+		   LanguageRegistry.addName(new ItemStack(potionArcadia, 1,  9), "Potion of Nausea");
+		   LanguageRegistry.addName(new ItemStack(potionArcadia, 1, 10), "Potion of Nausea");
+		   LanguageRegistry.addName(new ItemStack(potionArcadia, 1, 11), "Potion of Water Breathing");
+		   LanguageRegistry.addName(new ItemStack(potionArcadia, 1, 12), "Potion of Water Breathing");
+		   LanguageRegistry.addName(new ItemStack(potionArcadia, 1, 13), "Potion of Blindness");
+		   LanguageRegistry.addName(new ItemStack(potionArcadia, 1, 14), "Potion of Blindness");
+		   LanguageRegistry.addName(new ItemStack(potionArcadia, 1, 15), "Potion of Hunger");
+		   LanguageRegistry.addName(new ItemStack(potionArcadia, 1, 16), "Potion of Hunger");
+		   LanguageRegistry.addName(new ItemStack(potionArcadia, 1, 17), "Potion of Hunger");
+		   LanguageRegistry.addName(new ItemStack(potionArcadia, 1, 18), "Potion of Wither");
+		   LanguageRegistry.addName(new ItemStack(potionArcadia, 1, 19), "Potion of Wither");
+		   LanguageRegistry.addName(new ItemStack(potionArcadia, 1, 20), "Potion of Wither");
 		   
 		   LanguageRegistry.addName(crossbowWood, "Wood Crossbow");
 		   
 		   LanguageRegistry.addName(friedEgg, "Fried Egg");
 		   
 		   LanguageRegistry.addName(bagEnder, "Ender Bag");
+		   LanguageRegistry.addName(bagMedium, "Medium Bag");
 		   LanguageRegistry.addName(bagHuge, "Huge Bag");
 		   
     	   
@@ -486,6 +520,8 @@ public class arcadia
 	   	   LanguageRegistry.addName(new ItemStack(redRock, 1, 3), "Red Rock Brick Carved");
 	   	   LanguageRegistry.addName(new ItemStack(redRock, 1, 4), "Red Rock Brick Cracked");
     	   
+	   	   //LanguageRegistry.addName(stairRedRockCobble, "Red Rock Cobble Stair");
+	   	   //LanguageRegistry.addName(stairRedRockBrick, "Red Rock Brick Stair");
 	   	   
     	   LanguageRegistry.addName(anvilArcadia, "Anvil Arcadia");
     	       	   

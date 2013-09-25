@@ -27,7 +27,8 @@ public class GuiBagArcadia extends GuiContainer
 	If you want a working texture to test out the tutorial with, I've uploaded one to my github page:
 	https://github.com/coolAlias/Forge_Tutorials/tree/master/textures/gui
 	*/
-	private static final ResourceLocation iconLocation = new ResourceLocation("arcadia", "textures/gui/bagHuge.png");
+	private ResourceLocation iconLocation;// = new ResourceLocation("arcadia", "textures/gui/bagHuge.png");
+	
 	
 	/** The inventory to render on screen */
 	private final InventoryBagArcadia inventory;
@@ -36,6 +37,30 @@ public class GuiBagArcadia extends GuiContainer
 	{
 	         super(containerItem);
 	         this.inventory = containerItem.inventory;
+	         int i = mc.thePlayer.getHeldItem().itemID;
+	         switch(mc.thePlayer.getHeldItem().itemID)
+             {
+         		 case 0:
+         		 {
+                     iconLocation = new ResourceLocation("arcadia", "textures/gui/bagSmall.png");
+                     break;
+         		 }
+                 case 1:
+                 {
+                     iconLocation = new ResourceLocation("arcadia", "textures/gui/bagMedium.png");
+                     break;
+                 }   
+                 case 2:
+                 {
+                	 iconLocation = new ResourceLocation("arcadia", "textures/gui/bagHuge.png");
+                	 break;
+                 }
+                 default: iconLocation = new ResourceLocation("arcadia", "textures/gui/bagHuge.png");
+                 
+             }
+             //if (mc.thePlayer.getHeldItem().itemID = arcadia.bagHuge.itemID) {
+            	 
+             
 	}
 	
 	/**
@@ -51,15 +76,13 @@ public class GuiBagArcadia extends GuiContainer
 	/**
 	* Draw the foreground layer for the GuiContainer (everything in front of the items)
 	*/
-	// NOTE: In Forge 804, getString() is named func_135053_a()
-	// NOTE: In Forge 804, renderEngine is func_110434_K()
-	// NOTE: In Forge 804, bindTexture() is func_110577_a()
+	
 	protected void drawGuiContainerForegroundLayer(int par1, int par2)
 	{
-	         String s = this.inventory.isInvNameLocalized() ? this.inventory.getInvName() : I18n.getString(this.inventory.getInvName());
-	         //this.fontRenderer.drawString(s, this.xSize / 2 - this.fontRenderer.getStringWidth(s) / 2, 0, 4210752);
-	         this.fontRenderer.drawString("Huge Bag", 8, -30, 4210752);
-	         this.fontRenderer.drawString(I18n.getString("container.inventory"), 8, 90, 4210752);
+	         //String s = this.inventory.isInvNameLocalized() ? this.inventory.getInvName() : I18n.getString(this.inventory.getInvName());
+	         this.fontRenderer.drawString("Huge Bag", this.xSize / 2 - 102, -20, 4210752);
+	         //this.fontRenderer.drawString("Huge Bag", 8, -30, 4210752);
+	         this.fontRenderer.drawString(I18n.getString("container.inventory"), 8, 102, 4210752);
 	}
 	
 	/**
@@ -69,10 +92,10 @@ public class GuiBagArcadia extends GuiContainer
 	{
 	         GL11.glColor4f(1.0F, 1.0F, 1.0F, 1.0F);
 	         this.mc.renderEngine.bindTexture(iconLocation);
-	         //int k = (this.width - this.xSize) / 2;
-	         //int l = (this.height - this.ySize) / 2;
-	         int k = 125;
-	         int l = 0;
+	         int k = (this.width - this.xSize) / 2 + 22;
+	         int l = (this.height - this.ySize) / 2 + 1;
+	         //int k = 125;
+	         //int l = 0;
 	         this.drawTexturedModalRect(k, l, 0, 0, this.xSize, this.ySize);
 	         //int i1;
 	         //drawPlayerModel(k + 51, l + 75, 30, (float)(k + 51) - this.xSize_lo, (float)(l + 75 - 50) - this.ySize_lo, this.mc.thePlayer);
