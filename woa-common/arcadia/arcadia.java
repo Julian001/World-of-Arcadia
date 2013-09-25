@@ -201,6 +201,7 @@ public class arcadia
 	   
 	   public static Item potionArcadia;
 	   
+	   
 	   public static final String waterBreathing = "-0+1-2-3&4-4+13";
 	   //Absorption,Resistence,Hunger,Saturation PotionHelper
 	   
@@ -300,6 +301,7 @@ public class arcadia
     	   
     	   potionArcadia = new ItemArcadiaPotions(1107).setUnlocalizedName("potion");
     	   
+    	   
     	   //----Crossbows----//
     	   crossbowWood = new ItemCrossbowArcadia(1110).setUnlocalizedName("crossbow");
     	   
@@ -329,7 +331,7 @@ public class arcadia
     	   blockBronze = new BlockArcadia(516, Material.iron).setHardness(5.0F).setResistance(10.0F).setStepSound(Block.soundMetalFootstep).setUnlocalizedName("blockBronze");
     	   
     	   //----RedRock----//
-    	   redRock = new BlockArcadiaRedRock(531, Material.rock).setUnlocalizedName("redRock");
+    	   redRock = new BlockArcadiaRedRock(530, Material.rock).setUnlocalizedName("redRock");
     	   //stairRedRockCobble = new BlockArcadiaStairs(531, redRock, 1).setUnlocalizedName("stairRedRockCobble");
     	   //stairRedRockBrick = new BlockArcadiaStairs(532, redRock, 2).setUnlocalizedName("stairRedRockBrick");
     	   
@@ -488,6 +490,12 @@ public class arcadia
 		   LanguageRegistry.addName(new ItemStack(potionArcadia, 1, 18), "Potion of Wither");
 		   LanguageRegistry.addName(new ItemStack(potionArcadia, 1, 19), "Potion of Wither");
 		   LanguageRegistry.addName(new ItemStack(potionArcadia, 1, 20), "Potion of Wither");
+		   LanguageRegistry.addName(new ItemStack(potionArcadia, 1, 21), "Potion of Health");
+		   LanguageRegistry.addName(new ItemStack(potionArcadia, 1, 22), "Potion of Speed");
+		   LanguageRegistry.addName(new ItemStack(potionArcadia, 1, 23), "Potion of Movement");
+		   LanguageRegistry.addName(new ItemStack(potionArcadia, 1, 24), "Potion of Ninja");
+		   LanguageRegistry.addName(new ItemStack(potionArcadia, 1, 25), "Potion of Attack and Defence");
+		   LanguageRegistry.addName(new ItemStack(potionArcadia, 1, 26), "Potion of Sight");
 		   
 		   LanguageRegistry.addName(crossbowWood, "Wood Crossbow");
 		   

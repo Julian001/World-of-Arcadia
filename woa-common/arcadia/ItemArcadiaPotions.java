@@ -22,7 +22,7 @@ import cpw.mods.fml.relauncher.SideOnly;
 
 public class ItemArcadiaPotions extends ItemFood {
 
-	private int meta = 22; 
+	private int meta = 27; 
 	//public static final String[] names = new String[] {"normal", "extended", "upgraded"};
 	public static final String[] names = new String[] 
 	{	"normalHaste", "extendedHaste", "upgradedHaste",
@@ -33,9 +33,10 @@ public class ItemArcadiaPotions extends ItemFood {
 		"normalBlindness", "extendedBlindness",
 		"normalHunger", "extendedHunger", "upgradedHunger",
 		"normalWither", "extendedWither", "upgradedWither",
-		"normalHealth"
+		"combinedHealth", "combinedSpeed" ,"combinedMovement",
+		"combinedNinja", "combinedAttackAndDefence", "Sight",
 		};
-	public static final int[] potionId = new int[] 
+	public static final int[] potionId1 = new int[] 
 	{	Potion.digSpeed.id, Potion.digSpeed.id, Potion.digSpeed.id,
 		Potion.digSlowdown.id, Potion.digSlowdown.id, Potion.digSlowdown.id,
 		Potion.jump.id, Potion.jump.id, Potion.jump.id,
@@ -44,8 +45,10 @@ public class ItemArcadiaPotions extends ItemFood {
 		Potion.blindness.id, Potion.blindness.id,
 		Potion.hunger.id, Potion.hunger.id, Potion.hunger.id,
 		Potion.wither.id, Potion.wither.id, Potion.wither.id,
-		Potion.heal.id, Potion.regeneration.id};
-	public static final int[] potionDuration = new int[] 
+		Potion.regeneration.id, Potion.moveSpeed.id, Potion.moveSpeed.id,
+		Potion.moveSpeed.id, Potion.damageBoost.id, Potion.nightVision.id,
+		};
+	public static final int[] potionDuration1 = new int[] 
 	{	180, 480, 90,
 		180, 480, 90,
 		180, 480, 90,
@@ -53,9 +56,11 @@ public class ItemArcadiaPotions extends ItemFood {
 		180, 480,
 		180, 480,
 		45, 120, 22,
-		45, 120, 22
+		45, 120, 22,
+		190, 190, 190,
+		200, 190, 190,
 		};
-    public static final int[] potionAmplifier = new int[] 
+    public static final int[] potionAmplifier1 = new int[] 
 	{	0, 0, 1,
     	0, 0, 1,
     	0, 0, 1,
@@ -63,10 +68,12 @@ public class ItemArcadiaPotions extends ItemFood {
     	0, 0,
     	0, 0,
     	0, 0, 1,
-    	0, 0, 1
+    	0, 0, 1,
+    	0, 0, 0,
+    	0, 0, 0,
     	};
-    //private float potionEffectProbability = 1F;
     
+
     
     
 	public ItemArcadiaPotions(int par1) {
@@ -75,12 +82,12 @@ public class ItemArcadiaPotions extends ItemFood {
 		this.setMaxStackSize(1);
 		this.setAlwaysEdible();
 		this.setCreativeTab(arcadia.tabArcadiaPotions);
-		
+
 	}
-	
+
 	@SideOnly(Side.CLIENT)
 	private Icon[] icons;
-	      
+
 	@SideOnly(Side.CLIENT)
 	public void registerIcons(IconRegister par1IconRegister)
     {
@@ -112,24 +119,31 @@ public class ItemArcadiaPotions extends ItemFood {
                      case 18:{ name = "Wither"; break; }
                      case 19:{ name = "Wither"; break; }
                      case 20:{ name = "Wither"; break; }
+                     case 21:{ name = "Health"; break; }
+                     case 22:{ name = "Speed"; break; }
+                     case 23:{ name = "Movement"; break; }
+                     case 24:{ name = "Ninja"; break; }
+                     case 25:{ name = "AttackAndDefence"; break; }
+                     case 26:{ name = "Vision"; break; }
                      
                      default: name = "Broken";
               }
         	  icons[i] = par1IconRegister.registerIcon(arcadia.modid + ":" + (this.getUnlocalizedName().substring(5)) + name);
           }
     }
-	
+
 	public Icon getIconFromDamage(int par1)
 	{
 		return icons[par1];
 	}
-	
+
 	public String getUnlocalizedName(ItemStack par1ItemStack)
 	{
 	    int i = MathHelper.clamp_int(par1ItemStack.getItemDamage(), 0, meta);
 	    return super.getUnlocalizedName() + "." + names[i];
 	}
-	
+
+	@SuppressWarnings({ "unchecked", "rawtypes" })
 	@SideOnly(Side.CLIENT)
 	public void getSubItems(int par1, CreativeTabs par2CreativeTabs, List par3List)
 	{
@@ -138,7 +152,7 @@ public class ItemArcadiaPotions extends ItemFood {
 	        par3List.add(new ItemStack(this, 1, x));
 	    }
 	}
-	
+
 	public ItemStack onEaten(ItemStack par1ItemStack, World par2World, EntityPlayer par3EntityPlayer)
     {
 		int i = MathHelper.clamp_int(par1ItemStack.getItemDamage(), 0, meta);
@@ -146,9 +160,41 @@ public class ItemArcadiaPotions extends ItemFood {
         {
             --par1ItemStack.stackSize;
         }
-        if (!par2World.isRemote && potionId[i] > 0 && par2World.rand.nextFloat() < 1F)
+        if (!par2World.isRemote)
         {
-            par3EntityPlayer.addPotionEffect(new PotionEffect(potionId[i], potionDuration[i] * 20, potionAmplifier[i]));
+        	switch(i)
+        	{
+        	    case 21:
+		    		par3EntityPlayer.addPotionEffect(new PotionEffect(potionId1[i], potionDuration1[i] * 20, potionAmplifier1[i]));
+		    		par3EntityPlayer.addPotionEffect(new PotionEffect(Potion.heal.id, 2));
+		    		break;
+        	    case 22:
+        	    	par3EntityPlayer.addPotionEffect(new PotionEffect(potionId1[i], potionDuration1[i] * 20, potionAmplifier1[i]));
+		    		par3EntityPlayer.addPotionEffect(new PotionEffect(Potion.digSpeed.id, potionDuration1[i] * 20, 0));
+		    		break;
+        	    case 23:
+        	    	par3EntityPlayer.addPotionEffect(new PotionEffect(potionId1[i], potionDuration1[i] * 20, potionAmplifier1[i]));
+		    		par3EntityPlayer.addPotionEffect(new PotionEffect(Potion.digSpeed.id, potionDuration1[i] * 20, 0));
+		    		par3EntityPlayer.addPotionEffect(new PotionEffect(Potion.jump.id, potionDuration1[i] * 20, 0));
+		    		break;
+        	    case 24:
+        	    	par3EntityPlayer.addPotionEffect(new PotionEffect(potionId1[i], potionDuration1[i] * 20, potionAmplifier1[i]));
+		    		par3EntityPlayer.addPotionEffect(new PotionEffect(Potion.digSpeed.id, potionDuration1[i] * 20, 0));
+		    		par3EntityPlayer.addPotionEffect(new PotionEffect(Potion.jump.id, potionDuration1[i] * 20, 0));
+		    		par3EntityPlayer.addPotionEffect(new PotionEffect(Potion.invisibility.id, potionDuration1[i] * 20, 0));
+		    		break;
+        	    case 25:
+        	    	par3EntityPlayer.addPotionEffect(new PotionEffect(potionId1[i], potionDuration1[i] * 20, potionAmplifier1[i]));
+		    		par3EntityPlayer.addPotionEffect(new PotionEffect(Potion.fireResistance.id, potionDuration1[i] * 20, 0));
+		    		break;
+        	    case 26:
+        	    	par3EntityPlayer.addPotionEffect(new PotionEffect(potionId1[i], potionDuration1[i] * 20, potionAmplifier1[i]));
+		    		par3EntityPlayer.addPotionEffect(new PotionEffect(Potion.waterBreathing.id, potionDuration1[i] * 20, 0));
+		    		break;
+		    			    		
+				default:
+					par3EntityPlayer.addPotionEffect(new PotionEffect(potionId1[i], potionDuration1[i] * 20, potionAmplifier1[i]));
+        	}
         }
         if (!par3EntityPlayer.capabilities.isCreativeMode)
         {
@@ -162,15 +208,15 @@ public class ItemArcadiaPotions extends ItemFood {
 
         return par1ItemStack;
     }
-	
+
 	public boolean hasEffect(ItemStack par1ItemStack) {
 		return true;
 		}
-	
+
 	public EnumAction getItemUseAction(ItemStack par1ItemStack) {
         return EnumAction.drink;
     }
-	
+
 	@SuppressWarnings({ "unchecked", "rawtypes" })
 	public void addInformation(ItemStack stack, EntityPlayer player, List list, boolean i)
 	{
@@ -299,6 +345,60 @@ public class ItemArcadiaPotions extends ItemFood {
 			list.add("");
 			list.add(EnumChatFormatting.DARK_PURPLE + StatCollector.translateToLocal("potion.effects.whenDrank"));
 			list.add("\u00A7c-0.5 Hearts per Second");
+		}
+		if (stack.getItemDamage() == 21) {
+			list.add("Regeneration (3:10)");
+			list.add("Heal");
+			list.add("");
+			list.add(EnumChatFormatting.DARK_PURPLE + StatCollector.translateToLocal("potion.effects.whenDrank"));
+			list.add("\u00A79+1/2 Heart/2.5 seconds");
+			list.add("\u00A79+2 Hearts healed");
+		}
+		if (stack.getItemDamage() == 22) {
+			list.add("Speed (3:10)");
+			list.add("Haste (3:10)");
+			list.add("");
+			list.add(EnumChatFormatting.DARK_PURPLE + StatCollector.translateToLocal("potion.effects.whenDrank"));
+			list.add("\u00A79+20% Walking Speed");
+			list.add("\u00A79+20% Digging Speed");
+		}
+		if (stack.getItemDamage() == 23) {
+			list.add("Speed (3:10)");
+			list.add("Haste (3:10)");
+			list.add("Jump Boost (3:10)");
+			list.add("");
+			list.add(EnumChatFormatting.DARK_PURPLE + StatCollector.translateToLocal("potion.effects.whenDrank"));
+			list.add("\u00A79+20% Walking Speed");
+			list.add("\u00A79+20% Digging Speed");
+			list.add("\u00A79+1/2 Block Jump Hight");
+		}
+		if (stack.getItemDamage() == 24) {
+			list.add("Speed (3:20)");
+			list.add("Haste (3:20)");
+			list.add("Jump Boost (3:20)");
+			list.add("Invisibility (3:20)");
+			list.add("");
+			list.add(EnumChatFormatting.DARK_PURPLE + StatCollector.translateToLocal("potion.effects.whenDrank"));
+			list.add("\u00A79+20% Walking Speed");
+			list.add("\u00A79+20% Digging Speed");
+			list.add("\u00A79+1/2 Block Jump Hight");
+			list.add("\u00A79You become invisible!");
+		}
+		if (stack.getItemDamage() == 25) {
+			list.add("Strength (3:10)");
+			list.add("Fire Resistance (3:10)");
+			list.add("");
+			list.add(EnumChatFormatting.DARK_PURPLE + StatCollector.translateToLocal("potion.effects.whenDrank"));
+			list.add("\u00A79+30% Melee Damage");
+			list.add("\u00A79Immunity to fire");
+		}
+		if (stack.getItemDamage() == 26) {
+			list.add("Night Vision (3:10)");
+			list.add("Water Breathing (3:10)");
+			list.add("");
+			list.add(EnumChatFormatting.DARK_PURPLE + StatCollector.translateToLocal("potion.effects.whenDrank"));
+			list.add("\u00A79You can see better!");
+			list.add("\u00A79+100% Air Regeneration");
 		}
 	}
 }
