@@ -1,0 +1,20 @@
+[
+{
+"modid": "arcadia",
+"name": "World of Arcadia",
+"description": "RPG style Minecraft Mod ...",
+"version": "0.0.2",
+"url": "www.google.com",
+"authorList": [
+"Julian001",
+"Fussel12345"
+],
+"credits": "Thx to everyone!",
+"logoFile": "assets/arcadia/logo.png",
+"screenshots": [],
+"dependencies": ["forge"
+],
+"mcversion": "1.6.2"
+
+}
+]

@@ -6,6 +6,7 @@ import net.minecraft.block.Block;
 import net.minecraft.world.World;
 import net.minecraft.world.chunk.IChunkProvider;
 import net.minecraft.world.gen.feature.WorldGenMinable;
+import arcadia.blocks.BlocksArcadia;
 import cpw.mods.fml.common.IWorldGenerator;
 
 public class EventManager implements IWorldGenerator{
@@ -29,17 +30,17 @@ public class EventManager implements IWorldGenerator{
 
   private void generateSurface(World world, Random random, int x, int z)
   {
-       this.addOreSpawn(arcadia.oreCopper, world, random, x , z, 16, 16,
+       this.addOreSpawn(BlocksArcadia.oreCopper, world, random, x , z, 16, 16,
     		   3 + random.nextInt(2), 6 , 40, 70);
-       this.addOreSpawn(arcadia.oreTin, world, random, x , z, 16, 16,
+       this.addOreSpawn(BlocksArcadia.oreTin, world, random, x , z, 16, 16,
     		   3 + random.nextInt(1), 5 , 30, 60);
-       this.addOreSpawn(arcadia.oreLead, world, random, x , z, 16, 16,
+       this.addOreSpawn(BlocksArcadia.oreLead, world, random, x , z, 16, 16,
     		   2 + random.nextInt(1), 4 , 20, 50);
-       this.addOreSpawn(arcadia.oreSilver, world, random, x , z, 16, 16,
+       this.addOreSpawn(BlocksArcadia.oreSilver, world, random, x , z, 16, 16,
     		   2 + random.nextInt(2), 3 , 0, 40);
-       this.addOreSpawn(arcadia.oreRuby, world, random, x , z, 16, 16,
+       this.addOreSpawn(BlocksArcadia.oreRuby, world, random, x , z, 16, 16,
     		   1 + random.nextInt(2), 2 , 0, 10);
-       this.addOreSpawn(arcadia.oreSapphire, world, random, x , z, 16, 16,
+       this.addOreSpawn(BlocksArcadia.oreSapphire, world, random, x , z, 16, 16,
     		   1 + random.nextInt(3), 2 , 10, 20);
        
   }
@@ -49,7 +50,7 @@ public class EventManager implements IWorldGenerator{
 	  int Xcoord = x + random.nextInt(16);
       int Ycoord = 10 + random.nextInt(128);
       int Zcoord = z + random.nextInt(16);
-      (new WorldGenNetherMinable(arcadia.oreSilver.blockID, 0, 15)).generate(world, random, Xcoord, Ycoord, Zcoord);
+      (new WorldGenNetherMinable(BlocksArcadia.oreSilver.blockID, 0, 15)).generate(world, random, Xcoord, Ycoord, Zcoord);
   }
 		
 	
@@ -71,6 +72,7 @@ public class EventManager implements IWorldGenerator{
 	 **/
 	public void addOreSpawn(Block block, World world, Random random, int blockXPos, int blockZPos, int maxX, int maxZ, int maxVeinSize, int chancesToSpawn, int minY, int maxY)
 	{
+	       @SuppressWarnings("unused")
 	       int maxPossY = minY + (maxY - 1);
 	       assert maxY > minY: "The maximum Y must be greater than the Minimum Y";
 	       assert maxX > 0 && maxX <= 16: "addOreSpawn: The Maximum X must be greater than 0 and less than 16";

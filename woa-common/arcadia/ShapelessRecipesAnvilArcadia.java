@@ -14,8 +14,10 @@ public class ShapelessRecipesAnvilArcadia implements IRecipe
 	private final ItemStack recipeOutput;
 	
 	/** Is a List of ItemStack that composes the recipe. */
+	@SuppressWarnings("rawtypes")
 	public final List recipeItems;
 	
+	@SuppressWarnings("rawtypes")
 	public ShapelessRecipesAnvilArcadia(ItemStack par1ItemStack, List par2List)
 	{
 	         this.recipeOutput = par1ItemStack;
@@ -30,6 +32,7 @@ public class ShapelessRecipesAnvilArcadia implements IRecipe
 	/**
 	         * Used to check if a recipe matches current crafting inventory
 	         */
+	@SuppressWarnings({ "unchecked", "rawtypes" })
 	public boolean matches(InventoryCrafting par1InventoryCrafting, World par2World)
 	{
 	         ArrayList arraylist = new ArrayList(this.recipeItems);

@@ -11,11 +11,13 @@ import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.crafting.IRecipe;
 import net.minecraft.world.World;
+import arcadia.items.ItemsArcadia;
 
 public class CraftingManagerAnvilArcadia
 {
 	public static final int WILDCARD_VALUE = Short.MAX_VALUE;
 	private static final CraftingManagerAnvilArcadia instance = new CraftingManagerAnvilArcadia();
+	@SuppressWarnings("rawtypes")
 	private List recipes = new ArrayList();
 	
 	public static final CraftingManagerAnvilArcadia getInstance()
@@ -23,19 +25,20 @@ public class CraftingManagerAnvilArcadia
 	         return instance;
 	}
 	
+	@SuppressWarnings({ "rawtypes", "unchecked" })
 	private CraftingManagerAnvilArcadia()
 	{
 	recipes = new ArrayList();
 		
-		this.func_92051_a(new ItemStack(arcadia.chestplateRuby, 1), new Object[] {
+		this.func_92051_a(new ItemStack(ItemsArcadia.chestplateRuby, 1), new Object[] {
 			"#   #",
 			"## ##",
 			"#####",
 			"#####",
-			"#####", '#', arcadia.gemRuby});
+			"#####", '#', ItemsArcadia.gemRuby});
 		
-		this.func_92051_a(new ItemStack(arcadia.chestplateSapphire, 1), new Object[] {
-			"#", '#', arcadia.ingotSilver		});
+		this.func_92051_a(new ItemStack(ItemsArcadia.chestplateSapphire, 1), new Object[] {
+			"#", '#', ItemsArcadia.ingotSilver		});
 	
 	         //This is where your recipes will go
 	
@@ -43,6 +46,7 @@ public class CraftingManagerAnvilArcadia
 	         System.out.println(this.recipes.size() + " recipes");
 	}
 	
+	@SuppressWarnings({ "rawtypes", "unchecked" })
 	public ShapedRecipesAnvilArcadia func_92051_a(ItemStack par1ItemStack, Object ... par2ArrayOfObj)
 	{
 	         String var3 = "";
@@ -117,6 +121,7 @@ public class CraftingManagerAnvilArcadia
 	         return var17;
 	}
 	
+	@SuppressWarnings({ "unchecked", "rawtypes" })
 	public void addShapelessRecipe(ItemStack par1ItemStack, Object ... par2ArrayOfObj)
 	{
 	         ArrayList var3 = new ArrayList();
@@ -210,6 +215,7 @@ public class CraftingManagerAnvilArcadia
 	/**
 	         * returns the List<> of all recipes
 	         */
+	@SuppressWarnings("rawtypes")
 	public List getRecipeList()
 	{
 	         return this.recipes;

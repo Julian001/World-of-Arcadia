@@ -4,6 +4,7 @@ import java.util.Comparator;
 
 import net.minecraft.item.crafting.IRecipe;
 
+@SuppressWarnings("rawtypes")
 public class RecipeSorterAnvilArcadia implements Comparator
 {
 	final CraftingManagerAnvilArcadia craftingManager;

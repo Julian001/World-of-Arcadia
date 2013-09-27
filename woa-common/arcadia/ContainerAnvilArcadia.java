@@ -1,5 +1,6 @@
 package arcadia;
  
+import arcadia.blocks.BlocksArcadia;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.InventoryPlayer;
 import net.minecraft.inventory.Container;
@@ -74,7 +75,7 @@ public class ContainerAnvilArcadia extends Container {
         }
  
         public boolean canInteractWith(EntityPlayer entityplayer) {
-                if (worldObj.getBlockId(posX, posY, posZ) != arcadia.anvilArcadia.blockID) {
+                if (worldObj.getBlockId(posX, posY, posZ) != BlocksArcadia.anvilArcadia.blockID) {
                         return false;
                 } else {
                         return entityplayer.getDistanceSq((double) posX + 0.5D,
