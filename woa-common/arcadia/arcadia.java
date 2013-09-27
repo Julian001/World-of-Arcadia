@@ -139,6 +139,7 @@ public class arcadia
     	   bagMedium = new ItemArcadiaBagMedium(1123).setUnlocalizedName("bagMedium");
     	   bagHuge = new ItemArcadiaBag(1124).setUnlocalizedName("bagHuge");
     	   
+    	   Block.commandBlock.setCreativeTab(CreativeTabs.tabRedstone);
     	   
     	   //----Oreblocks----//
     	   blockSilver = new BlockArcadia(510, Material.iron).setHardness(5.0F).setResistance(10.0F).setStepSound(Block.soundMetalFootstep).setUnlocalizedName("blockSilver");
