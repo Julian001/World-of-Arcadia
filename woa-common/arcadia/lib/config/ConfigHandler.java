@@ -5,8 +5,11 @@ import java.io.File;
 import net.minecraftforge.common.Configuration;
 
 public class ConfigHandler {
+	@SuppressWarnings("static-access")
 	public static void init(File configFile) {
 		Configuration config = new Configuration(configFile);
+		
+		final String BOOLEANS = config.CATEGORY_GENERAL + config.CATEGORY_SPLITTER + "booleans";
 		
 		config.load();
 		
@@ -68,6 +71,11 @@ public class ConfigHandler {
 		Ids.bootsSapphire = config.getItem("Sapphire Boots", Ids.bootsSapphire_default).getInt() - 256;
 		//----Potions----//
 		Ids.potionArcadia = config.getItem("Potions", Ids.potionArcadia_default).getInt() - 256;
+		//----Bags----//
+		Ids.bagEnder = config.getItem("Ender Bag", Ids.bagEnder_default).getInt() - 256;
+		Ids.bagSmall = config.getItem("Small Bag", Ids.bagSmall_default).getInt() - 256;
+		Ids.bagMedium = config.getItem("Medium Bag", Ids.bagMedium_default).getInt() - 256;
+		Ids.bagHuge = config.getItem("Huge Bag", Ids.bagHuge_default).getInt() - 256;
 		
 		//----Ores----//
 		Ids.oreSilver = config.getBlock("Silver Ore", Ids.oreSilver_default).getInt();
@@ -76,6 +84,15 @@ public class ConfigHandler {
 		Ids.oreLead = config.getBlock("Lead Ore", Ids.oreLead_default).getInt();
 		Ids.oreRuby = config.getBlock("Ruby Ore", Ids.oreRuby_default).getInt();
 		Ids.oreSapphire = config.getBlock("Sapphire Ore", Ids.oreSapphire_default).getInt();
+		//----OreBlocks----//
+		Ids.blockSilver = config.getBlock("Block of Silver", Ids.blockSilver_default).getInt();
+		Ids.blockCopper = config.getBlock("Block of Copper", Ids.blockCopper_default).getInt();
+		Ids.blockTin = config.getBlock("Block of Tin", Ids.blockTin_default).getInt();
+		Ids.blockLead = config.getBlock("Block of Lead", Ids.blockLead_default).getInt();
+		Ids.blockRuby = config.getBlock("Block of Ruby", Ids.blockRuby_default).getInt();
+		Ids.blockSapphire = config.getBlock("Block of Sapphire", Ids.blockSapphire_default).getInt();
+		Ids.blockBronze = config.getBlock("Block of Bronze", Ids.blockBronze_default).getInt();
+		
 		//----Anvil----//
 		Ids.anvilArcadia = config.getBlock("Anvil Arcadia", Ids.anvilArcadia_default).getInt();
 		//----RedRock----//
@@ -83,6 +100,9 @@ public class ConfigHandler {
 		//----PotionCombiner----//
 		Ids.potionCombiner = config.getBlock("Potion Combiner", Ids.potionCombiner_default).getInt();
 		Ids.potionCombiner_active = config.getBlock("Potion Combiner Active", Ids.potionCombiner_active_default).getInt();
+		
+		
+		Booleans.enableCommandBlockInCreativeTab = config.get(BOOLEANS, "Enable Commandblock in Redstone Creative Tab", Booleans.enableCommandBlockInCreativeTab_dedault).getBoolean(Booleans.enableCommandBlockInCreativeTab_dedault);
 		
 		config.save();
 	}

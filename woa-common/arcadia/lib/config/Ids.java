@@ -2,10 +2,9 @@ package arcadia.lib.config;
 
 public class Ids 
 {
+	//----Food----//
 	public static int friedEgg;
 	public static final int friedEgg_default = 5120;
-	public static int mysticalFist;
-	public static final int mysticalFist_default = 13337;
 	//----Ingots----//
 	public static int ingotSilver;
 	public static final int ingotSilver_default = 5001;
@@ -32,7 +31,7 @@ public class Ids
     public static final int swordRuby_default = 5012;
     public static int swordSapphire;
     public static final int swordSapphire_default = 5013;
-    //----Pickaxe----//
+    //----Pickaxes----//
     public static int pickaxeSilver;
     public static final int pickaxeSilver_default = 5020;
     public static int pickaxeBronze;
@@ -41,7 +40,7 @@ public class Ids
     public static final int pickaxeRuby_default = 5022;
     public static int pickaxeSapphire;
     public static final int pickaxeSapphire_default = 5023;
-    //----Shovel----//
+    //----Shovels----//
     public static int shovelSilver;
     public static final int shovelSilver_default = 5030;
     public static int shovelBronze;
@@ -50,7 +49,7 @@ public class Ids
     public static final int shovelRuby_default = 5032;
     public static int shovelSapphire;
     public static final int shovelSapphire_default = 5033;
-    //----Axe----//
+    //----Axes----//
     public static int axeSilver;
     public static final int axeSilver_default = 5040;
     public static int axeBronze;
@@ -59,7 +58,7 @@ public class Ids
     public static final int axeRuby_default = 5042;
     public static int axeSapphire;
     public static final int axeSapphire_default = 5043;
-    //----Hoe----//
+    //----Hoes----//
     public static int hoeSilver;
     public static final int hoeSilver_default = 5050;
     public static int hoeBronze;
@@ -68,7 +67,7 @@ public class Ids
     public static final int hoeRuby_default = 5052;
     public static int hoeSapphire;
     public static final int hoeSapphire_default = 5053;
-    //----Helmet----//
+    //----Helmets----//
     public static int helmetSilver;
     public static final int helmetSilver_default = 5060;
     public static int helmetBronze;
@@ -77,7 +76,7 @@ public class Ids
     public static final int helmetRuby_default = 5062;
     public static int helmetSapphire;
     public static final int helmetSapphire_default = 5063;
-    //----Chestplate----//
+    //----Chestplates----//
     public static int chestplateSilver;
     public static final int chestplateSilver_default = 5070;
     public static int chestplateBronze;
@@ -104,9 +103,21 @@ public class Ids
     public static final int bootsRuby_default = 5092;
     public static int bootsSapphire;
     public static final int bootsSapphire_default = 5093;
-    //----Potiosn----//
+    //----Potions----//
     public static int potionArcadia;
     public static final int potionArcadia_default = 5107;
+    //----MysticalFist----//
+    public static int mysticalFist;
+	public static final int mysticalFist_default = 13337;
+	//----Bags----//
+    public static int bagEnder;
+    public static final int bagEnder_default = 5121;
+    public static int bagSmall;
+    public static final int bagSmall_default = 5122;
+    public static int bagMedium;
+    public static final int bagMedium_default = 5123;
+    public static int bagHuge;
+    public static final int bagHuge_default = 5124;
 	
 	//----Ores----//
 	public static int oreSilver;
@@ -121,6 +132,21 @@ public class Ids
 	public static final int oreRuby_default = 504;
 	public static int oreSapphire;
 	public static final int oreSapphire_default = 505;
+	//----OreBlocks----//       
+    public static int blockSilver;
+    public static final int blockSilver_default = 510;
+    public static int blockCopper;
+    public static final int blockCopper_default = 511;
+    public static int blockTin;
+    public static final int blockTin_default = 512;
+    public static int blockLead;
+    public static final int blockLead_default = 513;
+    public static int blockRuby;
+    public static final int blockRuby_default = 514;
+    public static int blockSapphire;
+    public static final int blockSapphire_default = 515;
+    public static int blockBronze;
+    public static final int blockBronze_default = 516;
 	//----Anvil----//
 	public static int anvilArcadia;
 	public static final int anvilArcadia_default = 600;

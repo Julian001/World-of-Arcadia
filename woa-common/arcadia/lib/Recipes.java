@@ -3,7 +3,6 @@ package arcadia.lib;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.crafting.FurnaceRecipes;
-import arcadia.arcadia;
 import arcadia.blocks.BlocksArcadia;
 import arcadia.items.ItemsArcadia;
 import cpw.mods.fml.common.registry.GameRegistry;
@@ -26,50 +25,50 @@ public class Recipes {
 		
 		//----Oreblocks----//
 		GameRegistry.addShapelessRecipe(new ItemStack(ItemsArcadia.ingotSilver, 9), new Object[]{
-			new ItemStack(arcadia.blockSilver)		});		
-		GameRegistry.addRecipe(new ItemStack(arcadia.blockSilver), new Object[]{
+			new ItemStack(BlocksArcadia.blockSilver)		});		
+		GameRegistry.addRecipe(new ItemStack(BlocksArcadia.blockSilver), new Object[]{
 			"XXX",
 			"XXX",
 			"XXX",
 			'X' , ItemsArcadia.ingotSilver		});
 		GameRegistry.addShapelessRecipe(new ItemStack(ItemsArcadia.ingotCopper, 9), new Object[]{
-			new ItemStack(arcadia.blockCopper)		});		
-		GameRegistry.addRecipe(new ItemStack(arcadia.blockCopper), new Object[]{
+			new ItemStack(BlocksArcadia.blockCopper)		});		
+		GameRegistry.addRecipe(new ItemStack(BlocksArcadia.blockCopper), new Object[]{
 			"XXX",
 			"XXX",
 			"XXX",
 			'X' , ItemsArcadia.ingotCopper		});
 		GameRegistry.addShapelessRecipe(new ItemStack(ItemsArcadia.ingotTin, 9), new Object[]{
-			new ItemStack(arcadia.blockTin)		});		
-		GameRegistry.addRecipe(new ItemStack(arcadia.blockTin), new Object[]{
+			new ItemStack(BlocksArcadia.blockTin)		});		
+		GameRegistry.addRecipe(new ItemStack(BlocksArcadia.blockTin), new Object[]{
 			"XXX",
 			"XXX",
 			"XXX",
 			'X' , ItemsArcadia.ingotTin		});
 		GameRegistry.addShapelessRecipe(new ItemStack(ItemsArcadia.ingotLead, 9), new Object[]{
-			new ItemStack(arcadia.blockLead)		});		
-		GameRegistry.addRecipe(new ItemStack(arcadia.blockLead), new Object[]{
+			new ItemStack(BlocksArcadia.blockLead)		});		
+		GameRegistry.addRecipe(new ItemStack(BlocksArcadia.blockLead), new Object[]{
 			"XXX",
 			"XXX",
 			"XXX",
 			'X' , ItemsArcadia.ingotLead		});
 		GameRegistry.addShapelessRecipe(new ItemStack(ItemsArcadia.gemRuby, 9), new Object[]{
-			new ItemStack(arcadia.blockRuby)		});		
-		GameRegistry.addRecipe(new ItemStack(arcadia.blockRuby), new Object[]{
+			new ItemStack(BlocksArcadia.blockRuby)		});		
+		GameRegistry.addRecipe(new ItemStack(BlocksArcadia.blockRuby), new Object[]{
 			"XXX",
 			"XXX",
 			"XXX",
 			'X' , ItemsArcadia.gemRuby		});
 		GameRegistry.addShapelessRecipe(new ItemStack(ItemsArcadia.gemSapphire, 9), new Object[]{
-			new ItemStack(arcadia.blockSapphire)		});		
-		GameRegistry.addRecipe(new ItemStack(arcadia.blockSapphire), new Object[]{
+			new ItemStack(BlocksArcadia.blockSapphire)		});		
+		GameRegistry.addRecipe(new ItemStack(BlocksArcadia.blockSapphire), new Object[]{
 			"XXX",
 			"XXX",
 			"XXX",
 			'X' , ItemsArcadia.gemSapphire		});
 		GameRegistry.addShapelessRecipe(new ItemStack(ItemsArcadia.ingotBronze, 9), new Object[]{
-			new ItemStack(arcadia.blockBronze)		});		
-		GameRegistry.addRecipe(new ItemStack(arcadia.blockBronze), new Object[]{
+			new ItemStack(BlocksArcadia.blockBronze)		});		
+		GameRegistry.addRecipe(new ItemStack(BlocksArcadia.blockBronze), new Object[]{
 			"XXX",
 			"XXX",
 			"XXX",

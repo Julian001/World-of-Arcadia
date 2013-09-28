@@ -1,18 +1,23 @@
 package arcadia;
 
 import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.inventory.InventoryEnderChest;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.world.World;
+import arcadia.anvil.ContainerAnvilArcadia;
 import arcadia.bag.ContainerBagArcadia;
+import arcadia.bag.ContainerBagEnder;
 import arcadia.bag.ContainerBagMediumArcadia;
 import arcadia.bag.ContainerBagSmallArcadia;
 import arcadia.bag.GuiBagArcadia;
+import arcadia.bag.GuiBagEnder;
 import arcadia.bag.GuiBagMediumArcadia;
 import arcadia.bag.GuiBagSmallArcadia;
 import arcadia.bag.InventoryBagArcadia;
 import arcadia.bag.InventoryBagMediumArcadia;
 import arcadia.bag.InventoryBagSmallArcadia;
 import arcadia.blocks.BlocksArcadia;
+import arcadia.client.gui.inventory.GuiAnvilArcadia;
 import arcadia.client.gui.inventory.GuiPotionCombiner;
 import arcadia.inventory.ContainerPotionCombiner;
 import arcadia.lib.config.GuiIds;
@@ -31,7 +36,8 @@ public class GuiHandlerArcadia implements IGuiHandler
 			case 1: return id == GuiIds.guiBagSmallIndex ? new ContainerBagSmallArcadia(player, player.inventory, new InventoryBagSmallArcadia(player.getHeldItem())) : null;
 			case 2: return id == GuiIds.guiBagMediumIndex ? new ContainerBagMediumArcadia(player, player.inventory, new InventoryBagMediumArcadia(player.getHeldItem())) : null;
 			case 3: return id == GuiIds.guiBagHugeIndex ? new ContainerBagArcadia(player, player.inventory, new InventoryBagArcadia(player.getHeldItem())) : null;
-			case 4: return new ContainerPotionCombiner(player.inventory, (TileEntityPotionCombiner) tile_entity);
+			case 4: return id == GuiIds.guiBagEnderIndex ? new ContainerBagEnder(player, player.inventory, new InventoryEnderChest()) : null;
+			case 5: return new ContainerPotionCombiner(player.inventory, (TileEntityPotionCombiner) tile_entity);
 		}
 			return null;
 	}
@@ -46,7 +52,8 @@ public class GuiHandlerArcadia implements IGuiHandler
 			case 1: return id == GuiIds.guiBagSmallIndex ? new GuiBagSmallArcadia((ContainerBagSmallArcadia) new ContainerBagSmallArcadia(player, player.inventory, new InventoryBagSmallArcadia(player.getHeldItem()))) : null;
 			case 2: return id == GuiIds.guiBagMediumIndex ? new GuiBagMediumArcadia((ContainerBagMediumArcadia) new ContainerBagMediumArcadia(player, player.inventory, new InventoryBagMediumArcadia(player.getHeldItem()))) : null;
 			case 3: return id == GuiIds.guiBagHugeIndex ? new GuiBagArcadia((ContainerBagArcadia) new ContainerBagArcadia(player, player.inventory, new InventoryBagArcadia(player.getHeldItem()))) : null;
-			case 4: return new GuiPotionCombiner(player.inventory, (TileEntityPotionCombiner) tile_entity);
+			case 4: return id == GuiIds.guiBagEnderIndex ? new GuiBagEnder((ContainerBagEnder) new ContainerBagEnder(player, player.inventory, new InventoryEnderChest())) : null;
+			case 5: return new GuiPotionCombiner(player.inventory, (TileEntityPotionCombiner) tile_entity);
 		}
 			return null;
 	}

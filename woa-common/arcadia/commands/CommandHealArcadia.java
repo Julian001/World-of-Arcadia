@@ -1,18 +1,13 @@
-package arcadia;
+package arcadia.commands;
 
 import net.minecraft.command.CommandBase;
 import net.minecraft.command.ICommandSender;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.potion.Potion;
 
-public class CommandHealArcadia extends CommandBase {
-
-	
-	/**
-     * Return the required permission level for this command.
-     */
-    public int getRequiredPermissionLevel()
-    {
+public class CommandHealArcadia extends CommandBase 
+{
+	public int getRequiredPermissionLevel() {
         return 2;
     }
 
@@ -41,9 +36,6 @@ public class CommandHealArcadia extends CommandBase {
 		player.removePotionEffect(Potion.weakness.id);
 		player.removePotionEffect(Potion.moveSlowdown.id);
 		player.removePotionEffect(Potion.hunger.id);
-		//player.setAbsorptionAmount(10);
-		//füttern?
 		player.addChatMessage("\u00a7aPlayer healed");
-		
 	}
 }

@@ -7,15 +7,15 @@ import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.src.ModLoader;
 import net.minecraftforge.common.EnumHelper;
-import arcadia.ItemFoodArcadia;
+import arcadia.bag.ItemArcadiaBag;
+import arcadia.bag.ItemArcadiaBagMedium;
+import arcadia.bag.ItemArcadiaBagSmall;
 import arcadia.lib.config.Ids;
 
 public class ItemsArcadia 
 {
 	//----Food----//
 	public static Item friedEgg;
-	
-	public static Item mysticalFist;
 	//----Ingots----//
     public static Item ingotSilver;
     public static Item ingotCopper;
@@ -91,11 +91,17 @@ public class ItemsArcadia
     public static Item bootsSapphire;
     //----Potions----//
     public static Item potionArcadia;
+    //----MysticalFist----//
+	public static Item mysticalFist;
+	//----Bags----//
+	public static Item bagEnder;
+    public static Item bagSmall;
+    public static Item bagMedium;
+    public static Item bagHuge;    
 	
 	public static void init() {
 		//----Food----//
 		friedEgg = new ItemFoodArcadia(Ids.friedEgg, 6, 2F, false).setUnlocalizedName("friedEgg");
-		mysticalFist = new ItemMysticalFist(Ids.mysticalFist, toolRUBY).setUnlocalizedName("mysticalFist");
 		//----Ingots----//
  	    ingotSilver = new ItemArcadia(Ids.ingotSilver).setUnlocalizedName("ingotSilver");
 		ingotCopper = new ItemArcadia(Ids.ingotCopper).setUnlocalizedName("ingotCopper");
@@ -152,13 +158,19 @@ public class ItemsArcadia
  	    bootsSapphire = new ItemArmorArcadia(Ids.bootsSapphire, armorSAPPHIRE, ModLoader.addArmor("Sapphire"), 3).setUnlocalizedName("bootsSapphire");
  	    //----Potions----//
  	    potionArcadia = new ItemPotionsArcadia(Ids.potionArcadia).setUnlocalizedName("potion");
+ 	    //----MysticalFist----//
+ 	    mysticalFist = new ItemMysticalFist(Ids.mysticalFist, toolRUBY).setUnlocalizedName("mysticalFist");
+ 	    //----Bags----//
+ 	    bagEnder = new ItemBagEnder(Ids.bagEnder).setUnlocalizedName("bagEnder");
+ 	    bagSmall = new ItemArcadiaBagSmall(Ids.bagSmall).setUnlocalizedName("bagSmall");
+ 	    bagMedium = new ItemArcadiaBagMedium(Ids.bagMedium).setUnlocalizedName("bagMedium");
+ 	    bagHuge = new ItemArcadiaBag(Ids.bagHuge).setUnlocalizedName("bagHuge");
  	   
 	}
 	
 	public static void addNames() {
 		//----Food----//
 		LanguageRegistry.addName(friedEgg, "Fried Egg");
-		LanguageRegistry.addName(mysticalFist, "Mystical Fist");
 		//----Items-----//
  	   	LanguageRegistry.addName(ingotSilver, "Silver Ingot");
  	   	LanguageRegistry.addName(ingotCopper, "Copper Ingot");
@@ -241,6 +253,13 @@ public class ItemsArcadia
 	   	LanguageRegistry.addName(new ItemStack(potionArcadia, 1, 24), "Potion of Ninja");
 	   	LanguageRegistry.addName(new ItemStack(potionArcadia, 1, 25), "Potion of Attack and Defence");
 	   	LanguageRegistry.addName(new ItemStack(potionArcadia, 1, 26), "Potion of Sight");
+	   	//----MysticalFist----//
+	   	LanguageRegistry.addName(mysticalFist, "Mystical Fist");
+		//----Bags----//
+	   	LanguageRegistry.addName(bagEnder, "Ender Bag");
+	   	LanguageRegistry.addName(bagSmall, "Small Bag");
+	   	LanguageRegistry.addName(bagMedium, "Medium Bag");
+	   	LanguageRegistry.addName(bagHuge, "Huge Bag");
 	   
 	}
 }

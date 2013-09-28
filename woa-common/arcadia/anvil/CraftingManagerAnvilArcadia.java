@@ -1,4 +1,4 @@
-package arcadia;
+package arcadia.anvil;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -212,9 +212,6 @@ public class CraftingManagerAnvilArcadia
 	         }
 	}
 	
-	/**
-	         * returns the List<> of all recipes
-	         */
 	@SuppressWarnings("rawtypes")
 	public List getRecipeList()
 	{

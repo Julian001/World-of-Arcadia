@@ -1,4 +1,4 @@
-package arcadia;
+package arcadia.world.gen;
 
 import java.util.Random;
 

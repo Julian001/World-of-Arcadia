@@ -1,4 +1,4 @@
-package arcadia;
+package arcadia.anvil;
  
 import arcadia.blocks.BlocksArcadia;
 import net.minecraft.entity.player.EntityPlayer;
@@ -12,8 +12,8 @@ import net.minecraft.inventory.SlotCrafting;
 import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
  
-public class ContainerAnvilArcadia extends Container {
- 
+public class ContainerAnvilArcadia extends Container 
+{ 
         public InventoryCrafting craftMatrix;
         public IInventory craftResult;
         private World worldObj;

@@ -1,4 +1,4 @@
-package arcadia;
+package arcadia.core.handler;
 
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.inventory.IInventory;
@@ -7,7 +7,6 @@ import cpw.mods.fml.common.ICraftingHandler;
 
 public class CraftingHandler implements ICraftingHandler
 {
-	
 	@Override
 	public void onCrafting(EntityPlayer player, ItemStack item, IInventory craftMatrix)
 	{
@@ -15,7 +14,6 @@ public class CraftingHandler implements ICraftingHandler
 		{
 			player.addStat(AchievementMod.Tutorial, 1);
 			}*/
-
 	}
 	
 	@Override

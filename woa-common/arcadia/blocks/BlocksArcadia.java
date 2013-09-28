@@ -3,7 +3,7 @@ package arcadia.blocks;
 import cpw.mods.fml.common.registry.GameRegistry;
 import cpw.mods.fml.common.registry.LanguageRegistry;
 import arcadia.arcadia;
-import arcadia.ItemBlockArcadiaRedRock;
+import arcadia.items.ItemBlockRedRock;
 import arcadia.lib.References;
 import arcadia.lib.config.Ids;
 import net.minecraft.block.Block;
@@ -18,6 +18,14 @@ public class BlocksArcadia {
     public static Block oreLead;
     public static Block oreRuby;
     public static Block oreSapphire;
+    //----OreBlocks----//       
+    public static Block blockSilver;
+    public static Block blockCopper;
+    public static Block blockTin;
+    public static Block blockLead;
+    public static Block blockRuby;
+    public static Block blockSapphire;
+    public static Block blockBronze;
     //----Anvil----//
     public static Block anvilArcadia;
     //----RedRock----//
@@ -34,6 +42,15 @@ public class BlocksArcadia {
  	   oreLead = new BlockArcadia(Ids.oreLead, Material.rock).setHardness(2.0F).setResistance(5.0F).setStepSound(Block.soundStoneFootstep).setUnlocalizedName("oreLead");
  	   oreRuby = new BlockArcadia(Ids.oreRuby, Material.rock).setHardness(4.0F).setResistance(5.0F).setStepSound(Block.soundStoneFootstep).setUnlocalizedName("oreRuby");
  	   oreSapphire = new BlockArcadia(Ids.oreSapphire, Material.rock).setHardness(4.0F).setResistance(5.0F).setStepSound(Block.soundStoneFootstep).setUnlocalizedName("oreSapphire");
+ 	   //----OreBlocks----//
+	   blockSilver = new BlockArcadia(Ids.blockSilver, Material.iron).setHardness(5.0F).setResistance(10.0F).setStepSound(Block.soundMetalFootstep).setUnlocalizedName("blockSilver");
+	   blockCopper = new BlockArcadia(Ids.blockCopper, Material.iron).setHardness(2.5F).setResistance(10.0F).setStepSound(Block.soundMetalFootstep).setUnlocalizedName("blockCopper");
+	   blockTin = new BlockArcadia(Ids.blockTin, Material.iron).setHardness(2.5F).setResistance(10.0F).setStepSound(Block.soundMetalFootstep).setUnlocalizedName("blockTin");
+	   blockLead = new BlockArcadia(Ids.blockLead, Material.iron).setHardness(2.0F).setResistance(10.0F).setStepSound(Block.soundMetalFootstep).setUnlocalizedName("blockLead");
+	   blockRuby = new BlockArcadia(Ids.blockRuby, Material.iron).setHardness(6.0F).setResistance(10.0F).setStepSound(Block.soundMetalFootstep).setUnlocalizedName("blockRuby");
+	   blockSapphire = new BlockArcadia(Ids.blockSapphire, Material.iron).setHardness(6.0F).setResistance(10.0F).setStepSound(Block.soundMetalFootstep).setUnlocalizedName("blockSapphire");
+	   blockBronze = new BlockArcadia(Ids.blockBronze, Material.iron).setHardness(5.0F).setResistance(10.0F).setStepSound(Block.soundMetalFootstep).setUnlocalizedName("blockBronze");
+	   
  	   //----Anvil----//
 	   anvilArcadia = new BlockAnvil(Ids.anvilArcadia).setUnlocalizedName("anvil");
 	   //----RedRock----//
@@ -53,10 +70,18 @@ public class BlocksArcadia {
  	   GameRegistry.registerBlock(oreLead, References.ID + oreLead.getUnlocalizedName().substring(5));
  	   GameRegistry.registerBlock(oreRuby, References.ID + oreRuby.getUnlocalizedName().substring(5));
  	   GameRegistry.registerBlock(oreSapphire, References.ID + oreSapphire.getUnlocalizedName().substring(5));
+ 	   //----OreBlocks----//
+	   GameRegistry.registerBlock(blockSilver, References.ID + blockSilver.getUnlocalizedName().substring(5));
+	   GameRegistry.registerBlock(blockCopper, References.ID + blockCopper.getUnlocalizedName().substring(5));
+	   GameRegistry.registerBlock(blockTin, References.ID + blockTin.getUnlocalizedName().substring(5));
+	   GameRegistry.registerBlock(blockLead, References.ID + blockLead.getUnlocalizedName().substring(5));
+	   GameRegistry.registerBlock(blockRuby, References.ID + blockRuby.getUnlocalizedName().substring(5));
+	   GameRegistry.registerBlock(blockSapphire, References.ID + blockSapphire.getUnlocalizedName().substring(5));
+	   GameRegistry.registerBlock(blockBronze, References.ID + blockBronze.getUnlocalizedName().substring(5));
  	   //----Anvil----//
  	   GameRegistry.registerBlock(anvilArcadia, References.ID + anvilArcadia.getUnlocalizedName().substring(5));
  	   //----RedRock----//
-	   GameRegistry.registerBlock(redRock, ItemBlockArcadiaRedRock.class, References.ID + (redRock.getUnlocalizedName().substring(5)));
+	   GameRegistry.registerBlock(redRock, ItemBlockRedRock.class, References.ID + (redRock.getUnlocalizedName().substring(5)));
 	   //----PotionCombiner----//
 	   GameRegistry.registerBlock(potionCombiner, References.ID + potionCombiner.getUnlocalizedName().substring(5));
 	   GameRegistry.registerBlock(potionCombiner_active, References.ID + potionCombiner_active.getUnlocalizedName().substring(5));
@@ -71,6 +96,14 @@ public class BlocksArcadia {
  	   LanguageRegistry.addName(oreLead, "Lead Ore");
  	   LanguageRegistry.addName(oreRuby, "\u00a7cRuby Ore");
  	   LanguageRegistry.addName(oreSapphire, "\u00a7bSapphire Ore");
+ 	   //----OreBlocks----//
+ 	   LanguageRegistry.addName(blockSilver, "Block of Silver");
+	   LanguageRegistry.addName(blockCopper, "Block of Copper");
+	   LanguageRegistry.addName(blockTin, "Block of Tin");
+	   LanguageRegistry.addName(blockLead, "Block of Lead");
+	   LanguageRegistry.addName(blockRuby, "\u00a7cBlock of Ruby");
+	   LanguageRegistry.addName(blockSapphire, "\u00a7bBlock of Sapphire");
+	   LanguageRegistry.addName(blockBronze, "Block of Bronze");
  	   //----Anvil----//
  	   LanguageRegistry.addName(anvilArcadia, "Anvil Arcadia");
  	   //-----RedRock----//

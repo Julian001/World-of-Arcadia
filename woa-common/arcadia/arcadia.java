@@ -1,8 +1,8 @@
 package arcadia;
 
 import java.util.logging.Level;
+
 import net.minecraft.block.Block;
-import net.minecraft.block.material.Material;
 import net.minecraft.command.ICommand;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.enchantment.Enchantment;
@@ -10,18 +10,24 @@ import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.stats.Achievement;
 import net.minecraft.stats.AchievementList;
+import net.minecraft.world.biome.BiomeGenBase;
 import net.minecraftforge.common.AchievementPage;
-import arcadia.bag.ItemArcadiaBag;
-import arcadia.bag.ItemArcadiaBagMedium;
-import arcadia.bag.ItemArcadiaBagSmall;
-import arcadia.blocks.BlockArcadia;
 import arcadia.blocks.BlocksArcadia;
+import arcadia.commands.CommandDayArcadia;
+import arcadia.commands.CommandEnderChest;
+import arcadia.commands.CommandHealArcadia;
+import arcadia.core.handler.CraftingHandler;
+import arcadia.core.handler.PickupHandler;
+import arcadia.items.ItemArcadia;
 import arcadia.items.ItemsArcadia;
 import arcadia.lib.LogHelper;
 import arcadia.lib.Recipes;
 import arcadia.lib.References;
+import arcadia.lib.config.BiomeIds;
+import arcadia.lib.config.Booleans;
 import arcadia.lib.config.ConfigHandler;
 import arcadia.proxies.CommonProxyArcadia;
+import arcadia.world.biome.BiomeGenWasteland;
 import cpw.mods.fml.common.Mod;
 import cpw.mods.fml.common.Mod.EventHandler;
 import cpw.mods.fml.common.Mod.Instance;
@@ -52,25 +58,10 @@ public class arcadia
        public static CreativeTabs tabArcadiaPotions;
        
        private GuiHandlerArcadia guiHandlerArcadia = new GuiHandlerArcadia();
-	   
+              
        //----Crossbows----//
        public static Item crossbowWood;
-       
-       //----Bags----//
-       public static Item bagSmall;
-       public static Item bagMedium;
-       public static Item bagHuge;
-       public static Item bagEnder;
-              
-       //----Oreblocks----//       
-       public static Block blockSilver;
-       public static Block blockCopper;
-       public static Block blockTin;
-       public static Block blockLead;
-       public static Block blockRuby;
-       public static Block blockSapphire;
-       public static Block blockBronze;
-       
+       public static Item bolt;
        
        public static Block stairRedRockCobble;
        public static Block stairRedRockBrick;
@@ -92,6 +83,7 @@ public class arcadia
 	   public static final ICommand commandDay = new CommandDayArcadia();
 	   
 	   public static final String waterBreathing = "-0+1-2-3&4-4+13";  
+	   public static BiomeGenBase wastelandBiome;
 	      
        EventManager eventmanager = new EventManager();
       
@@ -105,7 +97,7 @@ public class arcadia
        public void load(FMLInitializationEvent event)
        {
     	   tabArcadiaBlocks = new CreativeTabs("tabArcadiaBlocks") { public ItemStack getIconItemStack() {
-    		   return new ItemStack(blockSilver, 1, 0);}};
+    		   return new ItemStack(BlocksArcadia.blockSilver, 1, 0);}};
     	   tabArcadiaItems = new CreativeTabs("tabArcadiaItems") { public ItemStack getIconItemStack() {
     		   return new ItemStack(ItemsArcadia.ingotSilver, 1, 0);}};
     	   tabArcadiaPotions = new CreativeTabs("tabArcadiaPotions") { public ItemStack getIconItemStack() {
@@ -132,26 +124,15 @@ public class arcadia
     	      	   
     	   //----Crossbows----//
     	   crossbowWood = new ItemCrossbowArcadia(1110).setUnlocalizedName("crossbow");
+    	   bolt  = new ItemArcadia(12227).setUnlocalizedName("bolt");
     	       	   
-    	   //----Bags----//
-    	   bagEnder = new ItemEnderBagArcadia(1121).setUnlocalizedName("bagEnder");
-    	   bagSmall = new ItemArcadiaBagSmall(1122).setUnlocalizedName("bagSmall");
-    	   bagMedium = new ItemArcadiaBagMedium(1123).setUnlocalizedName("bagMedium");
-    	   bagHuge = new ItemArcadiaBag(1124).setUnlocalizedName("bagHuge");
-    	   
-    	   Block.commandBlock.setCreativeTab(CreativeTabs.tabRedstone);
-    	   
-    	   //----Oreblocks----//
-    	   blockSilver = new BlockArcadia(510, Material.iron).setHardness(5.0F).setResistance(10.0F).setStepSound(Block.soundMetalFootstep).setUnlocalizedName("blockSilver");
-    	   blockCopper = new BlockArcadia(511, Material.iron).setHardness(2.5F).setResistance(10.0F).setStepSound(Block.soundMetalFootstep).setUnlocalizedName("blockCopper");
-    	   blockTin = new BlockArcadia(512, Material.iron).setHardness(2.5F).setResistance(10.0F).setStepSound(Block.soundMetalFootstep).setUnlocalizedName("blockTin");
-    	   blockLead = new BlockArcadia(513, Material.iron).setHardness(2.0F).setResistance(10.0F).setStepSound(Block.soundMetalFootstep).setUnlocalizedName("blockLead");
-    	   blockRuby = new BlockArcadia(514, Material.iron).setHardness(6.0F).setResistance(10.0F).setStepSound(Block.soundMetalFootstep).setUnlocalizedName("blockRuby");
-    	   blockSapphire = new BlockArcadia(515, Material.iron).setHardness(6.0F).setResistance(10.0F).setStepSound(Block.soundMetalFootstep).setUnlocalizedName("blockSapphire");
-    	   blockBronze = new BlockArcadia(516, Material.iron).setHardness(5.0F).setResistance(10.0F).setStepSound(Block.soundMetalFootstep).setUnlocalizedName("blockBronze");
+    	   if(Booleans.enableCommandBlockInCreativeTab) {
+    	   Block.commandBlock.setCreativeTab(CreativeTabs.tabRedstone); }
     	   
     	   //stairRedRockCobble = new BlockArcadiaStairs(531, redRock, 1).setUnlocalizedName("stairRedRockCobble");
     	   //stairRedRockBrick = new BlockArcadiaStairs(532, redRock, 2).setUnlocalizedName("stairRedRockBrick");
+    	   
+    	   wastelandBiome = new BiomeGenWasteland(BiomeIds.wastelandIndex).setColor(522674).func_76733_a(9154376).setBiomeName("Wasteland").setTemperatureRainfall(1F, 0.2F).setMinMaxHeight(0.0F, 0.2F);
     	   
     	   GameRegistry.registerWorldGenerator(eventmanager);
     	   GameRegistry.registerCraftingHandler(new CraftingHandler());
@@ -181,16 +162,8 @@ public class arcadia
     	   event.registerServerCommand(new CommandDayArcadia());
        }
        
+              
        private void registerBlocks(){
-    	   //----Oreblock----//
-    	   GameRegistry.registerBlock(blockSilver, modid + blockSilver.getUnlocalizedName().substring(5));
-    	   GameRegistry.registerBlock(blockCopper, modid + blockCopper.getUnlocalizedName().substring(5));
-    	   GameRegistry.registerBlock(blockTin, modid + blockTin.getUnlocalizedName().substring(5));
-    	   GameRegistry.registerBlock(blockLead, modid + blockLead.getUnlocalizedName().substring(5));
-    	   GameRegistry.registerBlock(blockRuby, modid + blockRuby.getUnlocalizedName().substring(5));
-    	   GameRegistry.registerBlock(blockSapphire, modid + blockSapphire.getUnlocalizedName().substring(5));
-    	   GameRegistry.registerBlock(blockBronze, modid + blockBronze.getUnlocalizedName().substring(5));
-    	       	   
     	   //GameRegistry.registerBlock(stairRedRockCobble, modid + stairRedRockCobble.getUnlocalizedName().substring(5));
     	   //GameRegistry.registerBlock(stairRedRockBrick, modid + stairRedRockBrick.getUnlocalizedName().substring(5));
     	   
@@ -202,19 +175,6 @@ public class arcadia
        private void registerLanguage(){
     	   LanguageRegistry.addName(crossbowWood, "Wood Crossbow");
 		   
-		   LanguageRegistry.addName(bagEnder, "Ender Bag");
-		   LanguageRegistry.addName(bagSmall, "Small Bag");
-		   LanguageRegistry.addName(bagMedium, "Medium Bag");
-		   LanguageRegistry.addName(bagHuge, "Huge Bag");
-		   
-    	   LanguageRegistry.addName(blockSilver, "Block of Silver");
-    	   LanguageRegistry.addName(blockCopper, "Block of Copper");
-    	   LanguageRegistry.addName(blockTin, "Block of Tin");
-    	   LanguageRegistry.addName(blockLead, "Block of Lead");
-    	   LanguageRegistry.addName(blockRuby, "\u00a7cBlock of Ruby");
-    	   LanguageRegistry.addName(blockSapphire, "\u00a7bBlock of Sapphire");
-    	   LanguageRegistry.addName(blockBronze, "Block of Bronze");
-    	   
 	   	   //LanguageRegistry.addName(stairRedRockCobble, "Red Rock Cobble Stair");
 	   	   //LanguageRegistry.addName(stairRedRockBrick, "Red Rock Brick Stair");
    	   }
@@ -226,4 +186,5 @@ public class arcadia
            LanguageRegistry.instance().addStringLocalization("achievement.ShinyThings.desc", "en_US", "You found Shiny Things!");
            
        }
+       
 }

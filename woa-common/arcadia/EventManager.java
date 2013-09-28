@@ -7,6 +7,7 @@ import net.minecraft.world.World;
 import net.minecraft.world.chunk.IChunkProvider;
 import net.minecraft.world.gen.feature.WorldGenMinable;
 import arcadia.blocks.BlocksArcadia;
+import arcadia.world.gen.WorldGenNetherMinable;
 import cpw.mods.fml.common.IWorldGenerator;
 
 public class EventManager implements IWorldGenerator{
