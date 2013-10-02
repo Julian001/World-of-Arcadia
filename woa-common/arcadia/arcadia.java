@@ -9,6 +9,7 @@ import net.minecraft.enchantment.Enchantment;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityEggInfo;
 import net.minecraft.entity.EntityList;
+import net.minecraft.entity.EntityLiving;
 import net.minecraft.entity.EnumCreatureType;
 import net.minecraft.entity.passive.EntitySheep;
 import net.minecraft.item.Item;
@@ -27,6 +28,7 @@ import arcadia.commands.CommandHealArcadia;
 import arcadia.commands.CommandSpeedArcadia;
 import arcadia.core.handler.CraftingHandler;
 import arcadia.core.handler.PickupHandler;
+import arcadia.entity.EntityBandit;
 import arcadia.entity.EntityShark;
 import arcadia.items.ItemArcadia;
 import arcadia.items.ItemsArcadia;
@@ -71,7 +73,7 @@ public class arcadia
        private GuiHandlerArcadia guiHandlerArcadia = new GuiHandlerArcadia();
               
        //----Crossbows----//
-       public static Item crossbowWood;
+       //public static Item crossbowWood;
        public static Item bolt;
        
        public static Block stairRedRockCobble;
@@ -127,6 +129,8 @@ public class arcadia
     	   BlocksArcadia.addNames();
     	   LogHelper.log(Level.INFO, "Blocks loaded");
     	   
+    	   LogHelper.log(Level.INFO, "Preparing mobs");
+    	   proxy.registerRenderers();
     	   NetworkRegistry.instance().registerGuiHandler(this, guiHandlerArcadia);
     	   
     	   //----Achievement----//
@@ -137,7 +141,7 @@ public class arcadia
     	   AchievementPage.registerAchievementPage(pageArcadia);
     	      	   
     	   //----Crossbows----//
-    	   crossbowWood = new ItemCrossbowArcadia(1110).setUnlocalizedName("crossbow");
+    	   //crossbowWood = new ItemCrossbowArcadia(1110).setUnlocalizedName("crossbow");
     	   bolt  = new ItemArcadia(12227).setUnlocalizedName("bolt");
     	       	   
     	   if(Booleans.enableCommandBlockInCreativeTab) {
@@ -152,7 +156,10 @@ public class arcadia
     	   EntityRegistry.registerModEntity(EntityShark.class, "Shark", 5, this, 40, 1, true);
 		   EntityRegistry.addSpawn(EntityShark.class, 8, 1, 2, EnumCreatureType.waterCreature, wastelandBiome);
 		   LanguageRegistry.instance().addStringLocalization("entity.arcadia.Shark.name", "Shark");
-    	   
+		   
+		   registerEntity(EntityBandit.class, "Bandit", 0xeaeae9, 0xc99a03);
+    	   LanguageRegistry.instance().addStringLocalization("entity.Bandit.name", "Bandit");
+		   
     	   GameRegistry.registerWorldGenerator(eventmanager);
     	   GameRegistry.registerCraftingHandler(new CraftingHandler());
     	   GameRegistry.registerPickupHandler(new PickupHandler());
@@ -193,7 +200,7 @@ public class arcadia
        }
        
        private void registerLanguage(){
-    	   LanguageRegistry.addName(crossbowWood, "Wood Crossbow");
+    	   //LanguageRegistry.addName(crossbowWood, "Wood Crossbow");
 		   
 	   	   //LanguageRegistry.addName(stairRedRockCobble, "Red Rock Cobble Stair");
 	   	   //LanguageRegistry.addName(stairRedRockBrick, "Red Rock Brick Stair");
@@ -223,6 +230,20 @@ public class arcadia
                }
        }
        
+       public void registerEntity(Class<? extends Entity> entityClass, String entityName, int bkEggColor, int fgEggColor) 
+       {
+    	   int id = EntityRegistry.findGlobalUniqueEntityId();
+
+    	   EntityRegistry.registerGlobalEntityID(entityClass, entityName, id);
+    	   EntityList.entityEggs.put(Integer.valueOf(id), new EntityEggInfo(id, bkEggColor, fgEggColor));
+    	   }
+
+    	   public void addSpawn(Class<? extends EntityLiving> entityClass, int spawnProb, int min, int max, BiomeGenBase[] biomes) {
+    	   if (spawnProb > 0) {
+    	   EntityRegistry.addSpawn(entityClass, spawnProb, min, max, EnumCreatureType.creature, biomes);
+    	   }
+	   }
+    	   
        public static int getUniqueEntityId(){
  		  do {startEntityId++;} 
  		  while (EntityList.getStringFromID(startEntityId) != null);

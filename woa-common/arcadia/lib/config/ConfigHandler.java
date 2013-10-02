@@ -76,6 +76,8 @@ public class ConfigHandler {
 		Ids.bagSmall = config.getItem("Small Bag", Ids.bagSmall_default).getInt() - 256;
 		Ids.bagMedium = config.getItem("Medium Bag", Ids.bagMedium_default).getInt() - 256;
 		Ids.bagHuge = config.getItem("Huge Bag", Ids.bagHuge_default).getInt() - 256;
+		//----Crossbows----//
+		Ids.crossbowIron = config.getItem("Iron Crossbow", Ids.crossbowIron_default).getInt() - 256;
 		
 		//----Ores----//
 		Ids.oreSilver = config.getBlock("Silver Ore", Ids.oreSilver_default).getInt();

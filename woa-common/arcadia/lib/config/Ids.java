@@ -118,6 +118,9 @@ public class Ids
     public static final int bagMedium_default = 5123;
     public static int bagHuge;
     public static final int bagHuge_default = 5124;
+    //----Crossbows----//
+    public static int crossbowIron;
+    public static final int crossbowIron_default = 5200;
 	
 	//----Ores----//
 	public static int oreSilver;

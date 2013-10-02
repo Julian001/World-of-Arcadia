@@ -97,7 +97,9 @@ public class ItemsArcadia
 	public static Item bagEnder;
     public static Item bagSmall;
     public static Item bagMedium;
-    public static Item bagHuge;    
+    public static Item bagHuge;
+    //----Crossbows----//
+    public static Item crossbowIron;
 	
 	public static void init() {
 		//----Food----//
@@ -165,6 +167,8 @@ public class ItemsArcadia
  	    bagSmall = new ItemArcadiaBagSmall(Ids.bagSmall).setUnlocalizedName("bagSmall");
  	    bagMedium = new ItemArcadiaBagMedium(Ids.bagMedium).setUnlocalizedName("bagMedium");
  	    bagHuge = new ItemArcadiaBag(Ids.bagHuge).setUnlocalizedName("bagHuge");
+ 	    //----Crossbows----//
+ 	    crossbowIron = new ItemCrossbow(Ids.crossbowIron).setUnlocalizedName("crossbowIron");
  	   
 	}
 	
@@ -260,6 +264,8 @@ public class ItemsArcadia
 	   	LanguageRegistry.addName(bagSmall, "Small Bag");
 	   	LanguageRegistry.addName(bagMedium, "Medium Bag");
 	   	LanguageRegistry.addName(bagHuge, "Huge Bag");
-	   
+	   	//----Crossbows----//
+	   	LanguageRegistry.addName(crossbowIron, "Iron Crossbow");
+	   	
 	}
 }
