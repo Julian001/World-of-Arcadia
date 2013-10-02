@@ -29,6 +29,7 @@ import arcadia.commands.CommandSpeedArcadia;
 import arcadia.core.handler.CraftingHandler;
 import arcadia.core.handler.PickupHandler;
 import arcadia.entity.EntityBandit;
+import arcadia.entity.EntityBanditArcher;
 import arcadia.entity.EntityShark;
 import arcadia.items.ItemArcadia;
 import arcadia.items.ItemsArcadia;
@@ -129,8 +130,7 @@ public class arcadia
     	   BlocksArcadia.addNames();
     	   LogHelper.log(Level.INFO, "Blocks loaded");
     	   
-    	   LogHelper.log(Level.INFO, "Preparing mobs");
-    	   proxy.registerRenderers();
+    	   
     	   NetworkRegistry.instance().registerGuiHandler(this, guiHandlerArcadia);
     	   
     	   //----Achievement----//
@@ -153,26 +153,15 @@ public class arcadia
     	   wastelandBiome = new BiomeGenWasteland(BiomeIds.wastelandIndex).setColor(522674).func_76733_a(9154376).setBiomeName("Wasteland").setTemperatureRainfall(1F, 0.2F).setMinMaxHeight(0.0F, 0.2F);
     	   ModLoader.addBiome(wastelandBiome);
     	   
-    	   EntityRegistry.registerModEntity(EntityShark.class, "Shark", 5, this, 40, 1, true);
-		   EntityRegistry.addSpawn(EntityShark.class, 8, 1, 2, EnumCreatureType.waterCreature, wastelandBiome);
-		   LanguageRegistry.instance().addStringLocalization("entity.arcadia.Shark.name", "Shark");
-		   
-		   registerEntity(EntityBandit.class, "Bandit", 0xeaeae9, 0xc99a03);
-    	   LanguageRegistry.instance().addStringLocalization("entity.Bandit.name", "Bandit");
-		   
+    	   
     	   GameRegistry.registerWorldGenerator(eventmanager);
     	   GameRegistry.registerCraftingHandler(new CraftingHandler());
     	   GameRegistry.registerPickupHandler(new PickupHandler());
-    	   
-    	   LanguageRegistry.instance().addStringLocalization("itemGroup.tabArcadiaBlocks", "en_US", "\u00a79World of Arcadia Blocks");
-    	   LanguageRegistry.instance().addStringLocalization("itemGroup.tabArcadiaItems", "en_US", "\u00a79World of Arcadia Items");
-    	   LanguageRegistry.instance().addStringLocalization("itemGroup.tabArcadiaPotions", "en_US", "\u00a79World of Arcadia Potions");
-    	   
-    	   
+    	       	       	   
     	   registerBlocks();
+    	   registerMobs();
     	   registerLanguage();
     	   AchievementLocalizations();
-    	   
     	   
        }
        
@@ -199,10 +188,30 @@ public class arcadia
     	   LogHelper.log(Level.INFO, "Recipes loaded");
        }
        
-       private void registerLanguage(){
-    	   //LanguageRegistry.addName(crossbowWood, "Wood Crossbow");
+       private void registerMobs(){
+    	   registerEntity(EntityBandit.class, "Bandit", 0x9C6416, 0xDDDFEB);
+		   addSpawn(EntityBandit.class, 8, 3, 4, wastelandBiome);
+    	   LanguageRegistry.instance().addStringLocalization("entity.Bandit.name", "Bandit");
+    	   
+    	   registerEntity(EntityBanditArcher.class, "BanditArcher", 0x9C6416, 0xDDDFEB);
+		   addSpawn(EntityBanditArcher.class, 8, 3, 4, wastelandBiome);
+    	   LanguageRegistry.instance().addStringLocalization("entity.BanditArcher.name", "Bandit Archer");
+    	   
+    	   registerEntity(EntityShark.class, "Shark", 0x7CB8D6, 0xFFFFCC);
+		   addSpawn(EntityShark.class, 8, 1, 2, BiomeGenBase.ocean);
+    	   LanguageRegistry.instance().addStringLocalization("entity.Shark.name", "Shark");
 		   
-	   	   //LanguageRegistry.addName(stairRedRockCobble, "Red Rock Cobble Stair");
+    	   LogHelper.log(Level.INFO, "Preparing Renderers");
+    	   proxy.registerRenderers();
+    	   LogHelper.log(Level.INFO, "Renderers Loaded");
+       }
+       
+       private void registerLanguage(){
+    	   LanguageRegistry.instance().addStringLocalization("itemGroup.tabArcadiaBlocks", "en_US", "\u00a79World of Arcadia Blocks");
+    	   LanguageRegistry.instance().addStringLocalization("itemGroup.tabArcadiaItems", "en_US", "\u00a79World of Arcadia Items");
+    	   LanguageRegistry.instance().addStringLocalization("itemGroup.tabArcadiaPotions", "en_US", "\u00a79World of Arcadia Potions");
+    	   
+    	   //LanguageRegistry.addName(stairRedRockCobble, "Red Rock Cobble Stair");
 	   	   //LanguageRegistry.addName(stairRedRockBrick, "Red Rock Brick Stair");
    	   }
        
@@ -230,31 +239,20 @@ public class arcadia
                }
        }
        
+       @SuppressWarnings("unchecked")
        public void registerEntity(Class<? extends Entity> entityClass, String entityName, int bkEggColor, int fgEggColor) 
        {
     	   int id = EntityRegistry.findGlobalUniqueEntityId();
 
     	   EntityRegistry.registerGlobalEntityID(entityClass, entityName, id);
     	   EntityList.entityEggs.put(Integer.valueOf(id), new EntityEggInfo(id, bkEggColor, fgEggColor));
-    	   }
+	   }
 
-    	   public void addSpawn(Class<? extends EntityLiving> entityClass, int spawnProb, int min, int max, BiomeGenBase[] biomes) {
-    	   if (spawnProb > 0) {
-    	   EntityRegistry.addSpawn(entityClass, spawnProb, min, max, EnumCreatureType.creature, biomes);
+       public void addSpawn(Class<? extends EntityLiving> entityClass, int spawnProb, int min, int max, BiomeGenBase biomes) 
+       {
+    	   if (spawnProb > 0) 
+    	   {
+    		   EntityRegistry.addSpawn(entityClass, spawnProb, min, max, EnumCreatureType.creature, biomes);
     	   }
 	   }
-    	   
-       public static int getUniqueEntityId(){
- 		  do {startEntityId++;} 
- 		  while (EntityList.getStringFromID(startEntityId) != null);
- 	
- 		   return startEntityId;
-       }
-       
-       public static void registerEntityEgg(Class<? extends Entity> entity, int primaryColor, int secondaryColor){
- 		  int id = getUniqueEntityId();
- 		  EntityList.IDtoClassMapping.put(id, entity);
- 		  EntityList.entityEggs.put(id, new EntityEggInfo(id, primaryColor, secondaryColor));
-       }
-       
 }
