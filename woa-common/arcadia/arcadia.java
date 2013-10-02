@@ -6,18 +6,28 @@ import net.minecraft.block.Block;
 import net.minecraft.command.ICommand;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.enchantment.Enchantment;
+import net.minecraft.entity.Entity;
+import net.minecraft.entity.EntityEggInfo;
+import net.minecraft.entity.EntityList;
+import net.minecraft.entity.EnumCreatureType;
+import net.minecraft.entity.passive.EntitySheep;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
+import net.minecraft.src.ModLoader;
 import net.minecraft.stats.Achievement;
 import net.minecraft.stats.AchievementList;
 import net.minecraft.world.biome.BiomeGenBase;
 import net.minecraftforge.common.AchievementPage;
+import net.minecraftforge.event.ForgeSubscribe;
+import net.minecraftforge.event.entity.living.LivingDropsEvent;
 import arcadia.blocks.BlocksArcadia;
 import arcadia.commands.CommandDayArcadia;
 import arcadia.commands.CommandEnderChest;
 import arcadia.commands.CommandHealArcadia;
+import arcadia.commands.CommandSpeedArcadia;
 import arcadia.core.handler.CraftingHandler;
 import arcadia.core.handler.PickupHandler;
+import arcadia.entity.EntityShark;
 import arcadia.items.ItemArcadia;
 import arcadia.items.ItemsArcadia;
 import arcadia.lib.LogHelper;
@@ -39,6 +49,7 @@ import cpw.mods.fml.common.event.FMLPreInitializationEvent;
 import cpw.mods.fml.common.event.FMLServerStartingEvent;
 import cpw.mods.fml.common.network.NetworkMod;
 import cpw.mods.fml.common.network.NetworkRegistry;
+import cpw.mods.fml.common.registry.EntityRegistry;
 import cpw.mods.fml.common.registry.GameRegistry;
 import cpw.mods.fml.common.registry.LanguageRegistry;
 
@@ -81,9 +92,12 @@ public class arcadia
 	   public static final ICommand commandHeal = new CommandHealArcadia();
 	   public static final ICommand commandEnderchest = new CommandEnderChest();
 	   public static final ICommand commandDay = new CommandDayArcadia();
+	   public static final ICommand commandSpeed = new CommandSpeedArcadia();
 	   
-	   public static final String waterBreathing = "-0+1-2-3&4-4+13";  
+	   public static final String waterBreathing = "-0+1-2-3&4-4+13";
+	   public static double rand; 
 	   public static BiomeGenBase wastelandBiome;
+	   static int startEntityId = 300;
 	      
        EventManager eventmanager = new EventManager();
       
@@ -133,6 +147,11 @@ public class arcadia
     	   //stairRedRockBrick = new BlockArcadiaStairs(532, redRock, 2).setUnlocalizedName("stairRedRockBrick");
     	   
     	   wastelandBiome = new BiomeGenWasteland(BiomeIds.wastelandIndex).setColor(522674).func_76733_a(9154376).setBiomeName("Wasteland").setTemperatureRainfall(1F, 0.2F).setMinMaxHeight(0.0F, 0.2F);
+    	   ModLoader.addBiome(wastelandBiome);
+    	   
+    	   EntityRegistry.registerModEntity(EntityShark.class, "Shark", 5, this, 40, 1, true);
+		   EntityRegistry.addSpawn(EntityShark.class, 8, 1, 2, EnumCreatureType.waterCreature, wastelandBiome);
+		   LanguageRegistry.instance().addStringLocalization("entity.arcadia.Shark.name", "Shark");
     	   
     	   GameRegistry.registerWorldGenerator(eventmanager);
     	   GameRegistry.registerCraftingHandler(new CraftingHandler());
@@ -160,6 +179,7 @@ public class arcadia
     	   event.registerServerCommand(new CommandHealArcadia());
     	   event.registerServerCommand(new CommandEnderChest());
     	   event.registerServerCommand(new CommandDayArcadia());
+    	   event.registerServerCommand(new CommandSpeedArcadia());
        }
        
               
@@ -185,6 +205,35 @@ public class arcadia
            LanguageRegistry.instance().addStringLocalization("achievement.ShinyThings", "en_US", "Look for new stuff");
            LanguageRegistry.instance().addStringLocalization("achievement.ShinyThings.desc", "en_US", "You found Shiny Things!");
            
+       }
+       
+       @ForgeSubscribe
+       public void onEntityDrop(LivingDropsEvent event) {
+               if (event.source.getDamageType().equals("player")) {
+                      
+            	   rand = Math.random();
+                       System.out.println("Killed something.");
+                       if (event.entityLiving instanceof EntitySheep) {
+                               System.out.println("Killed a sheep.");
+                               if (rand < 1) { //Makes drop 100% drop chance. Example: (0.25D = 25%, 1D = 100%, etc.);
+                                       event.entityLiving.dropItem(ItemsArcadia.gemRuby.itemID, 1);
+                                       System.out.println("No errors if you can see this message in console");
+                               }
+                       }
+               }
+       }
+       
+       public static int getUniqueEntityId(){
+ 		  do {startEntityId++;} 
+ 		  while (EntityList.getStringFromID(startEntityId) != null);
+ 	
+ 		   return startEntityId;
+       }
+       
+       public static void registerEntityEgg(Class<? extends Entity> entity, int primaryColor, int secondaryColor){
+ 		  int id = getUniqueEntityId();
+ 		  EntityList.IDtoClassMapping.put(id, entity);
+ 		  EntityList.entityEggs.put(id, new EntityEggInfo(id, primaryColor, secondaryColor));
        }
        
 }
