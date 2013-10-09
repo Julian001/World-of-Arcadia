@@ -30,6 +30,9 @@ public class BlocksArcadia {
     public static Block anvilArcadia;
     //----RedRock----//
     public static Block redRock;
+    //----Stairs----//
+    public static Block stairRedRockCobble;
+    public static Block stairRedRockBrick;
     //----PotionCombiner----//
     public static Block potionCombiner;
     public static Block potionCombiner_active;
@@ -55,6 +58,9 @@ public class BlocksArcadia {
 	   anvilArcadia = new BlockAnvil(Ids.anvilArcadia).setUnlocalizedName("anvil");
 	   //----RedRock----//
 	   redRock = new BlockRedRock(Ids.redRock, Material.rock).setUnlocalizedName("redRock");
+	   //----Stairs----//
+	   stairRedRockCobble = new BlockStair(Ids.stairRedRockCobble, BlocksArcadia.redRock, 1).setUnlocalizedName("stairRedRockCobble");
+	   stairRedRockBrick = new BlockStair(Ids.stairRedRockBrick, BlocksArcadia.redRock, 2).setUnlocalizedName("stairRedRockBrick");
 	   //-----PotionCombiner----//
 	   potionCombiner = new BlockPotionCombiner(Ids.potionCombiner, false, Material.iron).setCreativeTab(arcadia.tabArcadiaBlocks).setUnlocalizedName("potionCombiner");
 	   potionCombiner_active = new BlockPotionCombiner(Ids.potionCombiner_active, true, Material.iron).setUnlocalizedName("potionCombiner_active");
@@ -82,6 +88,9 @@ public class BlocksArcadia {
  	   GameRegistry.registerBlock(anvilArcadia, References.ID + anvilArcadia.getUnlocalizedName().substring(5));
  	   //----RedRock----//
 	   GameRegistry.registerBlock(redRock, ItemBlockRedRock.class, References.ID + (redRock.getUnlocalizedName().substring(5)));
+	   //----Stairs----//
+	   GameRegistry.registerBlock(stairRedRockCobble, References.ID + stairRedRockCobble.getUnlocalizedName().substring(5));
+	   GameRegistry.registerBlock(stairRedRockBrick, References.ID + stairRedRockBrick.getUnlocalizedName().substring(5));
 	   //----PotionCombiner----//
 	   GameRegistry.registerBlock(potionCombiner, References.ID + potionCombiner.getUnlocalizedName().substring(5));
 	   GameRegistry.registerBlock(potionCombiner_active, References.ID + potionCombiner_active.getUnlocalizedName().substring(5));
@@ -112,6 +121,9 @@ public class BlocksArcadia {
   	   LanguageRegistry.addName(new ItemStack(redRock, 1, 2), "Red Rock Brick");
   	   LanguageRegistry.addName(new ItemStack(redRock, 1, 3), "Red Rock Brick Carved");
   	   LanguageRegistry.addName(new ItemStack(redRock, 1, 4), "Red Rock Brick Cracked");
+  	   //----Stairs----//
+  	   LanguageRegistry.addName(stairRedRockCobble, "Red Rock Cobble Stair");
+ 	   LanguageRegistry.addName(stairRedRockBrick, "Red Rock Brick Stair");
   	   //----PotionCombiner----//
   	   LanguageRegistry.addName(potionCombiner, "Potion Combiner");
 	   

@@ -77,9 +77,7 @@ public class arcadia
        //public static Item crossbowWood;
        public static Item bolt;
        
-       public static Block stairRedRockCobble;
-       public static Block stairRedRockBrick;
-       
+              
        //----Enchantments----//
        public static final Enchantment knockup = new EnchantmentKnockup(52, 1);
 	   public static final Enchantment stun = new EnchantmentStun(53, 1);
@@ -147,9 +145,6 @@ public class arcadia
     	   if(Booleans.enableCommandBlockInCreativeTab) {
     	   Block.commandBlock.setCreativeTab(CreativeTabs.tabRedstone); }
     	   
-    	   //stairRedRockCobble = new BlockArcadiaStairs(531, redRock, 1).setUnlocalizedName("stairRedRockCobble");
-    	   //stairRedRockBrick = new BlockArcadiaStairs(532, redRock, 2).setUnlocalizedName("stairRedRockBrick");
-    	   
     	   wastelandBiome = new BiomeGenWasteland(BiomeIds.wastelandIndex).setColor(522674).func_76733_a(9154376).setBiomeName("Wasteland").setTemperatureRainfall(1F, 0.2F).setMinMaxHeight(0.0F, 0.2F);
     	   ModLoader.addBiome(wastelandBiome);
     	   
@@ -180,9 +175,7 @@ public class arcadia
        
               
        private void registerBlocks(){
-    	   //GameRegistry.registerBlock(stairRedRockCobble, modid + stairRedRockCobble.getUnlocalizedName().substring(5));
-    	   //GameRegistry.registerBlock(stairRedRockBrick, modid + stairRedRockBrick.getUnlocalizedName().substring(5));
-    	   
+    	   //TODO Stair recipes
     	   LogHelper.log(Level.INFO, "Preparing recipes");
     	   Recipes.addRecipes();
     	   LogHelper.log(Level.INFO, "Recipes loaded");
@@ -210,9 +203,6 @@ public class arcadia
     	   LanguageRegistry.instance().addStringLocalization("itemGroup.tabArcadiaBlocks", "en_US", "\u00a79World of Arcadia Blocks");
     	   LanguageRegistry.instance().addStringLocalization("itemGroup.tabArcadiaItems", "en_US", "\u00a79World of Arcadia Items");
     	   LanguageRegistry.instance().addStringLocalization("itemGroup.tabArcadiaPotions", "en_US", "\u00a79World of Arcadia Potions");
-    	   
-    	   //LanguageRegistry.addName(stairRedRockCobble, "Red Rock Cobble Stair");
-	   	   //LanguageRegistry.addName(stairRedRockBrick, "Red Rock Brick Stair");
    	   }
        
        public void AchievementLocalizations(){

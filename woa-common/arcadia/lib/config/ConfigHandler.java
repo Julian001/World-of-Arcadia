@@ -99,6 +99,9 @@ public class ConfigHandler {
 		Ids.anvilArcadia = config.getBlock("Anvil Arcadia", Ids.anvilArcadia_default).getInt();
 		//----RedRock----//
 		Ids.redRock = config.getBlock("Red Rock Blocks", Ids.redRock_default).getInt();
+		//----Stairs----//
+		Ids.stairRedRockCobble = config.getBlock("Red Rock Cobble Stair", Ids.stairRedRockCobble_default).getInt();
+		Ids.stairRedRockBrick = config.getBlock("Red Rock Brick Stair", Ids.stairRedRockBrick_default).getInt();
 		//----PotionCombiner----//
 		Ids.potionCombiner = config.getBlock("Potion Combiner", Ids.potionCombiner_default).getInt();
 		Ids.potionCombiner_active = config.getBlock("Potion Combiner Active", Ids.potionCombiner_active_default).getInt();
