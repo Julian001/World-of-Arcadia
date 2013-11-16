@@ -4,12 +4,12 @@ import net.minecraft.item.EnumArmorMaterial;
 import net.minecraft.item.EnumToolMaterial;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
-import net.minecraft.src.ModLoader;
 import net.minecraftforge.common.EnumHelper;
 import arcadia.bag.ItemArcadiaBag;
 import arcadia.bag.ItemArcadiaBagMedium;
 import arcadia.bag.ItemArcadiaBagSmall;
 import arcadia.lib.config.Ids;
+import cpw.mods.fml.client.registry.RenderingRegistry;
 import cpw.mods.fml.common.registry.GameRegistry;
 import cpw.mods.fml.common.registry.LanguageRegistry;
 
@@ -143,25 +143,25 @@ public class ItemsArcadia
  	    hoeRuby = new ItemHoeArcadia(Ids.hoeRuby, toolRUBY).setUnlocalizedName("hoeRuby");
  	    hoeSapphire = new ItemHoeArcadia(Ids.hoeSapphire, toolSAPPHIRE).setUnlocalizedName("hoeSapphire");
  	    //----Helmet----//
- 	    helmetSilver = new ItemArmorArcadia(Ids.helmetSilver, armorSILVER, ModLoader.addArmor("Silver"), 0).setUnlocalizedName("helmetSilver");
- 	    helmetBronze = new ItemArmorArcadia(Ids.helmetBronze, armorBRONZE, ModLoader.addArmor("Bronze"), 0).setUnlocalizedName("helmetBronze");
- 	    helmetRuby = new ItemArmorArcadia(Ids.helmetRuby, armorRUBY, ModLoader.addArmor("Ruby"), 0).setUnlocalizedName("helmetRuby");
- 	    helmetSapphire = new ItemArmorArcadia(Ids.helmetSapphire, armorSAPPHIRE, ModLoader.addArmor("Sapphire"), 0).setUnlocalizedName("helmetSapphire");
+ 	    helmetSilver = new ItemArmorArcadia(Ids.helmetSilver, armorSILVER, RenderingRegistry.addNewArmourRendererPrefix("Silver"), 0).setUnlocalizedName("helmetSilver");
+ 	    helmetBronze = new ItemArmorArcadia(Ids.helmetBronze, armorBRONZE, RenderingRegistry.addNewArmourRendererPrefix("Bronze"), 0).setUnlocalizedName("helmetBronze");
+ 	    helmetRuby = new ItemArmorArcadia(Ids.helmetRuby, armorRUBY, RenderingRegistry.addNewArmourRendererPrefix("Ruby"), 0).setUnlocalizedName("helmetRuby");
+ 	    helmetSapphire = new ItemArmorArcadia(Ids.helmetSapphire, armorSAPPHIRE, RenderingRegistry.addNewArmourRendererPrefix("Sapphire"), 0).setUnlocalizedName("helmetSapphire");
  	    //----Chestplate----//
- 	    chestplateSilver = new ItemArmorArcadia(Ids.chestplateSilver, armorSILVER, ModLoader.addArmor("Silver"), 1).setUnlocalizedName("chestplateSilver");
- 	    chestplateBronze = new ItemArmorArcadia(Ids.chestplateBronze, armorBRONZE, ModLoader.addArmor("Bronze"), 1).setUnlocalizedName("chestplateBronze");
- 	    chestplateRuby = new ItemArmorArcadia(Ids.chestplateRuby, armorRUBY, ModLoader.addArmor("Ruby"), 1).setUnlocalizedName("chestplateRuby");
- 	    chestplateSapphire = new ItemArmorArcadia(Ids.chestplateSapphire, armorSAPPHIRE, ModLoader.addArmor("Sapphire"), 1).setUnlocalizedName("chestplateSapphire");
+ 	    chestplateSilver = new ItemArmorArcadia(Ids.chestplateSilver, armorSILVER, RenderingRegistry.addNewArmourRendererPrefix("Silver"), 1).setUnlocalizedName("chestplateSilver");
+ 	    chestplateBronze = new ItemArmorArcadia(Ids.chestplateBronze, armorBRONZE, RenderingRegistry.addNewArmourRendererPrefix("Bronze"), 1).setUnlocalizedName("chestplateBronze");
+ 	    chestplateRuby = new ItemArmorArcadia(Ids.chestplateRuby, armorRUBY, RenderingRegistry.addNewArmourRendererPrefix("Ruby"), 1).setUnlocalizedName("chestplateRuby");
+ 	    chestplateSapphire = new ItemArmorArcadia(Ids.chestplateSapphire, armorSAPPHIRE, RenderingRegistry.addNewArmourRendererPrefix("Sapphire"), 1).setUnlocalizedName("chestplateSapphire");
  	    //----Leggings----//
- 	    leggingsSilver = new ItemArmorArcadia(Ids.leggingsSilver, armorSILVER, ModLoader.addArmor("Silver"), 2).setUnlocalizedName("leggingsSilver");
- 	    leggingsBronze = new ItemArmorArcadia(Ids.leggingsBronze, armorBRONZE, ModLoader.addArmor("Bronze"), 2).setUnlocalizedName("leggingsBronze");
- 	    leggingsRuby = new ItemArmorArcadia(Ids.leggingsRuby, armorRUBY, ModLoader.addArmor("Ruby"), 2).setUnlocalizedName("leggingsRuby");
- 	    leggingsSapphire = new ItemArmorArcadia(Ids.leggingsSapphire, armorSAPPHIRE, ModLoader.addArmor("Sapphire"), 2).setUnlocalizedName("leggingsSapphire");
+ 	    leggingsSilver = new ItemArmorArcadia(Ids.leggingsSilver, armorSILVER, RenderingRegistry.addNewArmourRendererPrefix("Silver"), 2).setUnlocalizedName("leggingsSilver");
+ 	    leggingsBronze = new ItemArmorArcadia(Ids.leggingsBronze, armorBRONZE, RenderingRegistry.addNewArmourRendererPrefix("Bronze"), 2).setUnlocalizedName("leggingsBronze");
+ 	    leggingsRuby = new ItemArmorArcadia(Ids.leggingsRuby, armorRUBY, RenderingRegistry.addNewArmourRendererPrefix("Ruby"), 2).setUnlocalizedName("leggingsRuby");
+ 	    leggingsSapphire = new ItemArmorArcadia(Ids.leggingsSapphire, armorSAPPHIRE, RenderingRegistry.addNewArmourRendererPrefix("Sapphire"), 2).setUnlocalizedName("leggingsSapphire");
  	    //----Boots----//
- 	    bootsSilver = new ItemArmorArcadia(Ids.bootsSilver, armorSILVER, ModLoader.addArmor("Silver"), 3).setUnlocalizedName("bootsSilver");
- 	    bootsBronze = new ItemArmorArcadia(Ids.bootsBronze, armorBRONZE, ModLoader.addArmor("Bronze"), 3).setUnlocalizedName("bootsBronze");
- 	    bootsRuby = new ItemArmorArcadia(Ids.bootsRuby, armorRUBY, ModLoader.addArmor("Ruby"), 3).setUnlocalizedName("bootsRuby");
- 	    bootsSapphire = new ItemArmorArcadia(Ids.bootsSapphire, armorSAPPHIRE, ModLoader.addArmor("Sapphire"), 3).setUnlocalizedName("bootsSapphire");
+ 	    bootsSilver = new ItemArmorArcadia(Ids.bootsSilver, armorSILVER, RenderingRegistry.addNewArmourRendererPrefix("Silver"), 3).setUnlocalizedName("bootsSilver");
+ 	    bootsBronze = new ItemArmorArcadia(Ids.bootsBronze, armorBRONZE, RenderingRegistry.addNewArmourRendererPrefix("Bronze"), 3).setUnlocalizedName("bootsBronze");
+ 	    bootsRuby = new ItemArmorArcadia(Ids.bootsRuby, armorRUBY, RenderingRegistry.addNewArmourRendererPrefix("Ruby"), 3).setUnlocalizedName("bootsRuby");
+ 	    bootsSapphire = new ItemArmorArcadia(Ids.bootsSapphire, armorSAPPHIRE, RenderingRegistry.addNewArmourRendererPrefix("Sapphire"), 3).setUnlocalizedName("bootsSapphire");
  	    //----Potions----//
  	    potionArcadia = new ItemPotionsArcadia(Ids.potionArcadia).setUnlocalizedName("potion");
  	    //----MysticalFist----//
