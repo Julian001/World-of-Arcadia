@@ -117,7 +117,7 @@ public class EntityBanditArcher extends EntityMob implements IRangedAttackMob
 
         for (k = 0; k < j; ++k)
         {
-            this.dropItem(Item.bone.itemID, 1);
+            this.dropItem(Item.leather.itemID, 1);
         }
     }
 

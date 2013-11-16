@@ -89,7 +89,7 @@ public class EntityBandit extends EntityMob
     }
     protected int getDropItemId()
     {
-        return Item.arrow.itemID;
+        return Item.leather.itemID;
     }
     /**
      * Drop 0-2 items of this living's type. @param par1 - Whether this entity has recently been hit by a player. @param
@@ -103,14 +103,14 @@ public class EntityBandit extends EntityMob
 
         for (k = 0; k < j; ++k)
         {
-            this.dropItem(Item.arrow.itemID, 1);
+            this.dropItem(Item.leather.itemID, 1);
         }
 
         j = this.rand.nextInt(3 + par2);
 
         for (k = 0; k < j; ++k)
         {
-            this.dropItem(Item.bone.itemID, 1);
+            this.dropItem(Item.goldNugget.itemID, 1);
         }
     }
 

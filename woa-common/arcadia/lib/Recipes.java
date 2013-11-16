@@ -1,5 +1,6 @@
 package arcadia.lib;
 
+import net.minecraft.block.Block;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.crafting.FurnaceRecipes;
@@ -280,6 +281,43 @@ public class Recipes {
 			"XX",
 			"XX",
 			'X' , new ItemStack(BlocksArcadia.redRock, 1, 2)		});
+		GameRegistry.addRecipe(new ItemStack(BlocksArcadia.stairRedRockCobble, 4), new Object[]{
+			"X  ",
+			"XX ",
+			"XXX",
+			'X' , new ItemStack(BlocksArcadia.redRock, 1, 1)		});
+		GameRegistry.addRecipe(new ItemStack(BlocksArcadia.stairRedRockBrick, 4), new Object[]{
+			"X  ",
+			"XX ",
+			"XXX",
+			'X' , new ItemStack(BlocksArcadia.redRock, 1, 2)		});
+		
+		//----WIP----//
+		GameRegistry.addRecipe(new ItemStack(BlocksArcadia.anvilArcadia), new Object[]{
+			"XXX",
+			"Y#Y",
+			"YYY",
+			'X' , BlocksArcadia.blockSilver , '#' , ItemsArcadia.gemRuby , 'Y' , Block.obsidian		});
+		GameRegistry.addRecipe(new ItemStack(ItemsArcadia.crossbowIron), new Object[]{
+			" I ",
+			"#SI",
+			" I ",
+			'I' , Item.stick , 'S' , Item.silk , '#' , Item.ingotIron		});
+		GameRegistry.addRecipe(new ItemStack(ItemsArcadia.bagSmall), new Object[]{
+			"LSL",
+			"SKS",
+			"LSL",
+			'L' , Item.leather, 'S' , Item.silk , 'K' , Block.chest		});
+		GameRegistry.addRecipe(new ItemStack(ItemsArcadia.bagMedium), new Object[]{
+			"LXL",
+			"#K#",
+			"LLL",
+			'X' , ItemsArcadia.bagSmall , 'L' , Item.leather , 'K' , Block.chest , '#' , ItemsArcadia.ingotBronze		});
+		GameRegistry.addRecipe(new ItemStack(ItemsArcadia.bagEnder), new Object[]{
+			"LXL",
+			"#K#",
+			"LLL",
+			'X' , ItemsArcadia.bagSmall , 'L' , Item.leather , 'K' , Block.enderChest , '#' , ItemsArcadia.ingotBronze		});
 		
     }
 	
