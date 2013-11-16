@@ -9,6 +9,7 @@ import arcadia.bag.ItemArcadiaBag;
 import arcadia.bag.ItemArcadiaBagMedium;
 import arcadia.bag.ItemArcadiaBagSmall;
 import arcadia.lib.config.Ids;
+import cpw.mods.fml.client.registry.RenderingRegistry;
 import cpw.mods.fml.common.registry.GameRegistry;
 import cpw.mods.fml.common.registry.LanguageRegistry;
 
@@ -142,25 +143,25 @@ public class ItemsArcadia
  	    hoeRuby = new ItemHoeArcadia(Ids.hoeRuby, toolRUBY).setUnlocalizedName("hoeRuby");
  	    hoeSapphire = new ItemHoeArcadia(Ids.hoeSapphire, toolSAPPHIRE).setUnlocalizedName("hoeSapphire");
  	    //----Helmet----//
- 	    helmetSilver = new ItemArmorArcadia(Ids.helmetSilver, armorSILVER, 0).setUnlocalizedName("helmetSilver");
- 	    helmetBronze = new ItemArmorArcadia(Ids.helmetBronze, armorBRONZE, 0).setUnlocalizedName("helmetBronze");
- 	    helmetRuby = new ItemArmorArcadia(Ids.helmetRuby, armorRUBY, 0).setUnlocalizedName("helmetRuby");
- 	    helmetSapphire = new ItemArmorArcadia(Ids.helmetSapphire, armorSAPPHIRE, 0).setUnlocalizedName("helmetSapphire");
+ 	    helmetSilver = new ItemArmorArcadia(Ids.helmetSilver, armorSILVER, RenderingRegistry.addNewArmourRendererPrefix("Silver"), 0).setUnlocalizedName("helmetSilver");
+ 	    helmetBronze = new ItemArmorArcadia(Ids.helmetBronze, armorBRONZE, RenderingRegistry.addNewArmourRendererPrefix("Bronze"), 0).setUnlocalizedName("helmetBronze");
+ 	    helmetRuby = new ItemArmorArcadia(Ids.helmetRuby, armorRUBY, RenderingRegistry.addNewArmourRendererPrefix("Ruby"), 0).setUnlocalizedName("helmetRuby");
+ 	    helmetSapphire = new ItemArmorArcadia(Ids.helmetSapphire, armorSAPPHIRE, RenderingRegistry.addNewArmourRendererPrefix("Sapphire"), 0).setUnlocalizedName("helmetSapphire");
  	    //----Chestplate----//
- 	    chestplateSilver = new ItemArmorArcadia(Ids.chestplateSilver, armorSILVER, 1).setUnlocalizedName("chestplateSilver");
- 	    chestplateBronze = new ItemArmorArcadia(Ids.chestplateBronze, armorBRONZE, 1).setUnlocalizedName("chestplateBronze");
- 	    chestplateRuby = new ItemArmorArcadia(Ids.chestplateRuby, armorRUBY, 1).setUnlocalizedName("chestplateRuby");
- 	    chestplateSapphire = new ItemArmorArcadia(Ids.chestplateSapphire, armorSAPPHIRE, 1).setUnlocalizedName("chestplateSapphire");
+ 	    chestplateSilver = new ItemArmorArcadia(Ids.chestplateSilver, armorSILVER, RenderingRegistry.addNewArmourRendererPrefix("Silver"), 1).setUnlocalizedName("chestplateSilver");
+ 	    chestplateBronze = new ItemArmorArcadia(Ids.chestplateBronze, armorBRONZE, RenderingRegistry.addNewArmourRendererPrefix("Bronze"), 1).setUnlocalizedName("chestplateBronze");
+ 	    chestplateRuby = new ItemArmorArcadia(Ids.chestplateRuby, armorRUBY, RenderingRegistry.addNewArmourRendererPrefix("Ruby"), 1).setUnlocalizedName("chestplateRuby");
+ 	    chestplateSapphire = new ItemArmorArcadia(Ids.chestplateSapphire, armorSAPPHIRE, RenderingRegistry.addNewArmourRendererPrefix("Sapphire"), 1).setUnlocalizedName("chestplateSapphire");
  	    //----Leggings----//
- 	    leggingsSilver = new ItemArmorArcadia(Ids.leggingsSilver, armorSILVER, 2).setUnlocalizedName("leggingsSilver");
- 	    leggingsBronze = new ItemArmorArcadia(Ids.leggingsBronze, armorBRONZE, 2).setUnlocalizedName("leggingsBronze");
- 	    leggingsRuby = new ItemArmorArcadia(Ids.leggingsRuby, armorRUBY, 2).setUnlocalizedName("leggingsRuby");
- 	    leggingsSapphire = new ItemArmorArcadia(Ids.leggingsSapphire, armorSAPPHIRE, 2).setUnlocalizedName("leggingsSapphire");
+ 	    leggingsSilver = new ItemArmorArcadia(Ids.leggingsSilver, armorSILVER, RenderingRegistry.addNewArmourRendererPrefix("Silver"), 2).setUnlocalizedName("leggingsSilver");
+ 	    leggingsBronze = new ItemArmorArcadia(Ids.leggingsBronze, armorBRONZE, RenderingRegistry.addNewArmourRendererPrefix("Bronze"), 2).setUnlocalizedName("leggingsBronze");
+ 	    leggingsRuby = new ItemArmorArcadia(Ids.leggingsRuby, armorRUBY, RenderingRegistry.addNewArmourRendererPrefix("Ruby"), 2).setUnlocalizedName("leggingsRuby");
+ 	    leggingsSapphire = new ItemArmorArcadia(Ids.leggingsSapphire, armorSAPPHIRE, RenderingRegistry.addNewArmourRendererPrefix("Sapphire"), 2).setUnlocalizedName("leggingsSapphire");
  	    //----Boots----//
- 	    bootsSilver = new ItemArmorArcadia(Ids.bootsSilver, armorSILVER, 3).setUnlocalizedName("bootsSilver");
- 	    bootsBronze = new ItemArmorArcadia(Ids.bootsBronze, armorBRONZE, 3).setUnlocalizedName("bootsBronze");
- 	    bootsRuby = new ItemArmorArcadia(Ids.bootsRuby, armorRUBY, 3).setUnlocalizedName("bootsRuby");
- 	    bootsSapphire = new ItemArmorArcadia(Ids.bootsSapphire, armorSAPPHIRE, 3).setUnlocalizedName("bootsSapphire");
+ 	    bootsSilver = new ItemArmorArcadia(Ids.bootsSilver, armorSILVER, RenderingRegistry.addNewArmourRendererPrefix("Silver"), 3).setUnlocalizedName("bootsSilver");
+ 	    bootsBronze = new ItemArmorArcadia(Ids.bootsBronze, armorBRONZE, RenderingRegistry.addNewArmourRendererPrefix("Bronze"), 3).setUnlocalizedName("bootsBronze");
+ 	    bootsRuby = new ItemArmorArcadia(Ids.bootsRuby, armorRUBY, RenderingRegistry.addNewArmourRendererPrefix("Ruby"), 3).setUnlocalizedName("bootsRuby");
+ 	    bootsSapphire = new ItemArmorArcadia(Ids.bootsSapphire, armorSAPPHIRE, RenderingRegistry.addNewArmourRendererPrefix("Sapphire"), 3).setUnlocalizedName("bootsSapphire");
  	    //----Potions----//
  	    potionArcadia = new ItemPotionsArcadia(Ids.potionArcadia).setUnlocalizedName("potion");
  	    //----MysticalFist----//

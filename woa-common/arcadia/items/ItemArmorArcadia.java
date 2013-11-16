@@ -12,9 +12,9 @@ import cpw.mods.fml.relauncher.SideOnly;
 
 public class ItemArmorArcadia extends ItemArmor{
 
-    public ItemArmorArcadia(int id, EnumArmorMaterial par2EnumArmorMaterial, int par4)
+    public ItemArmorArcadia(int id, EnumArmorMaterial par2EnumArmorMaterial, int par3, int par4)
     {
-        super(id, par2EnumArmorMaterial, 0, par4);
+        super(id, par2EnumArmorMaterial, par3, par4);
         this.setCreativeTab(arcadia.tabArcadiaItems);        
     }
     
