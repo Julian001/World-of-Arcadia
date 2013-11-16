@@ -1,6 +1,5 @@
 package arcadia.items;
 
-import cpw.mods.fml.common.registry.LanguageRegistry;
 import net.minecraft.item.EnumArmorMaterial;
 import net.minecraft.item.EnumToolMaterial;
 import net.minecraft.item.Item;
@@ -11,6 +10,8 @@ import arcadia.bag.ItemArcadiaBag;
 import arcadia.bag.ItemArcadiaBagMedium;
 import arcadia.bag.ItemArcadiaBagSmall;
 import arcadia.lib.config.Ids;
+import cpw.mods.fml.common.registry.GameRegistry;
+import cpw.mods.fml.common.registry.LanguageRegistry;
 
 public class ItemsArcadia 
 {
@@ -100,6 +101,9 @@ public class ItemsArcadia
     public static Item bagHuge;
     //----Crossbows----//
     public static Item crossbowIron;
+    //----Slabs----//
+    public static Item itemSingleSlabRedRock;
+    public static Item itemDoubleSlabRedRock;
 	
 	public static void init() {
 		//----Food----//
@@ -169,11 +173,15 @@ public class ItemsArcadia
  	    bagHuge = new ItemArcadiaBag(Ids.bagHuge).setUnlocalizedName("bagHuge");
  	    //----Crossbows----//
  	    crossbowIron = new ItemCrossbow(Ids.crossbowIron).setUnlocalizedName("crossbowIron");
- 	   
+ 	    //----Slabs----//
+ 	  	//itemSingleSlabRedRock = new ItemSlabArcadia(arcadia.blocks.BlocksArcadia.singleSlabRedRock.blockID - 256, arcadia.blocks.BlocksArcadia.singleSlabRedRock, arcadia.blocks.BlocksArcadia.doubleSlabRedRock, true);
+ 	  	//itemDoubleSlabRedRock = new ItemSlabArcadia(arcadia.blocks.BlocksArcadia.doubleSlabRedRock.blockID - 256, arcadia.blocks.BlocksArcadia.singleSlabRedRock, arcadia.blocks.BlocksArcadia.doubleSlabRedRock, false);
+ 	  	
 	}
 	
 	public static void addNames() {
 		//----Food----//
+		GameRegistry.registerItem(friedEgg, "Fried Egg");
 		LanguageRegistry.addName(friedEgg, "Fried Egg");
 		//----Items-----//
  	   	LanguageRegistry.addName(ingotSilver, "Silver Ingot");
@@ -266,6 +274,8 @@ public class ItemsArcadia
 	   	LanguageRegistry.addName(bagHuge, "Huge Bag");
 	   	//----Crossbows----//
 	   	LanguageRegistry.addName(crossbowIron, "Iron Crossbow");
+	   	//----Slabs----//
+	   	//LanguageRegistry.addName(itemDoubleSlabRedRock, "Red Rock Double Slab Item");
 	   	
 	}
 }

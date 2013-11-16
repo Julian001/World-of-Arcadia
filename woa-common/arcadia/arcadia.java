@@ -74,7 +74,6 @@ public class arcadia
        private GuiHandlerArcadia guiHandlerArcadia = new GuiHandlerArcadia();
               
        //----Crossbows----//
-       //public static Item crossbowWood;
        public static Item bolt;
        
               
@@ -139,7 +138,6 @@ public class arcadia
     	   AchievementPage.registerAchievementPage(pageArcadia);
     	      	   
     	   //----Crossbows----//
-    	   //crossbowWood = new ItemCrossbowArcadia(1110).setUnlocalizedName("crossbow");
     	   bolt  = new ItemArcadia(12227).setUnlocalizedName("bolt");
     	       	   
     	   if(Booleans.enableCommandBlockInCreativeTab) {
@@ -147,7 +145,6 @@ public class arcadia
     	   
     	   wastelandBiome = new BiomeGenWasteland(BiomeIds.wastelandIndex).setColor(522674).func_76733_a(9154376).setBiomeName("Wasteland").setTemperatureRainfall(1F, 0.2F).setMinMaxHeight(0.0F, 0.2F);
     	   ModLoader.addBiome(wastelandBiome);
-    	   
     	   
     	   GameRegistry.registerWorldGenerator(eventmanager);
     	   GameRegistry.registerCraftingHandler(new CraftingHandler());
@@ -175,7 +172,7 @@ public class arcadia
        
               
        private void registerBlocks(){
-    	   //TODO Stair recipes
+    	   
     	   LogHelper.log(Level.INFO, "Preparing recipes");
     	   Recipes.addRecipes();
     	   LogHelper.log(Level.INFO, "Recipes loaded");

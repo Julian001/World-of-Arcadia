@@ -1,8 +1,8 @@
 package arcadia.items;
 
+import arcadia.arcadia;
 import net.minecraft.client.renderer.texture.IconRegister;
 import net.minecraft.item.ItemFood;
-import arcadia.arcadia;
 import arcadia.lib.References;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
@@ -16,8 +16,6 @@ public class ItemFoodArcadia extends ItemFood
 	private final float saturationModifier;
     @SuppressWarnings("unused")
 	private final boolean isWolfsFavoriteMeat;
-    @SuppressWarnings("unused")
-	private boolean alwaysEdible;
     
 	public ItemFoodArcadia(int id, int par2, float par3, boolean par4) {
 		super(id, par2, par3, par4);
@@ -27,7 +25,7 @@ public class ItemFoodArcadia extends ItemFood
         this.saturationModifier = par3;
 		this.setCreativeTab(arcadia.tabArcadiaItems);
 	}
-	
+		
 	@SideOnly(Side.CLIENT)
 	public void registerIcons(IconRegister par1IconRegister)
 	{

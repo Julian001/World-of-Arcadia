@@ -102,6 +102,14 @@ public class ConfigHandler {
 		//----Stairs----//
 		Ids.stairRedRockCobble = config.getBlock("Red Rock Cobble Stair", Ids.stairRedRockCobble_default).getInt();
 		Ids.stairRedRockBrick = config.getBlock("Red Rock Brick Stair", Ids.stairRedRockBrick_default).getInt();
+		//----Slabs----//
+		Ids.singleSlabRedRock = config.getBlock("Red Rock Slab", Ids.singleSlabRedRock_default).getInt();
+		Ids.doubleSlabRedRock = config.getBlock("Red Rock Double Slab", Ids.doubleSlabRedRock_default).getInt();
+		Ids.singleSlabRedRockCobble = config.getBlock("Red Rock Cobble Slab", Ids.singleSlabRedRockCobble_default).getInt();
+		Ids.doubleSlabRedRockCobble = config.getBlock("Red Rock Cobble Double Slab", Ids.doubleSlabRedRockCobble_default).getInt();
+		Ids.singleSlabRedRockBrick = config.getBlock("Red Rock Brick Slab", Ids.singleSlabRedRockBrick_default).getInt();
+		Ids.doubleSlabRedRockBrick = config.getBlock("Red Rock Brick Double Slab", Ids.doubleSlabRedRockBrick_default).getInt();
+		Ids.itemDoubleSlabRedRock = config.getItem("Slab Item", Ids.itemDoubleSlabRedRock_default).getInt() - 256;
 		//----PotionCombiner----//
 		Ids.potionCombiner = config.getBlock("Potion Combiner", Ids.potionCombiner_default).getInt();
 		Ids.potionCombiner_active = config.getBlock("Potion Combiner Active", Ids.potionCombiner_active_default).getInt();

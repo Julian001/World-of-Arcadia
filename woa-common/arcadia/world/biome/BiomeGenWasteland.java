@@ -1,20 +1,22 @@
 package arcadia.world.biome;
 
+import net.minecraft.block.Block;
 import net.minecraft.entity.passive.EntityCow;
 import net.minecraft.world.biome.BiomeGenBase;
 import net.minecraft.world.biome.SpawnListEntry;
 import net.minecraft.world.gen.feature.WorldGenBigTree;
 import net.minecraft.world.gen.feature.WorldGenForest;
 import net.minecraft.world.gen.feature.WorldGenTrees;
-import arcadia.blocks.BlocksArcadia;
 
 public class BiomeGenWasteland extends BiomeGenBase {
 
 	@SuppressWarnings("unchecked")
 	public BiomeGenWasteland(int par1) {
 		super(par1);
-		this.topBlock = (byte) BlocksArcadia.redRock.blockID;
-		this.fillerBlock = (byte) BlocksArcadia.redRock.blockID;
+		//this.topBlock = (byte)BlocksArcadia.redRock.blockID;
+		this.topBlock = (byte)Block.sandStone.blockID;
+		//this.fillerBlock = (byte)BlocksArcadia.redRock.blockID;
+		this.fillerBlock = (byte)Block.sandStone.blockID;
 		this.spawnableCreatureList.clear();
 		this.spawnableMonsterList.clear();
 		this.spawnableWaterCreatureList.clear();

@@ -161,6 +161,21 @@ public class Ids
 	public static final int stairRedRockCobble_default = 531;
     public static int stairRedRockBrick;
     public static final int stairRedRockBrick_default = 532;
+    //----Slabs----//
+    public static int singleSlabRedRock;
+    public static final int singleSlabRedRock_default = 540;
+    public static int doubleSlabRedRock;
+    public static final int doubleSlabRedRock_default = 541;
+    public static int singleSlabRedRockCobble;
+    public static final int singleSlabRedRockCobble_default = 542;
+    public static int doubleSlabRedRockCobble;
+    public static final int doubleSlabRedRockCobble_default = 543;
+    public static int singleSlabRedRockBrick;
+    public static final int singleSlabRedRockBrick_default = 544;
+    public static int doubleSlabRedRockBrick;
+    public static final int doubleSlabRedRockBrick_default = 545;
+    public static int itemDoubleSlabRedRock;
+    public static final int itemDoubleSlabRedRock_default = 5001;
 	//----PotionCombiner----//
 	public static int potionCombiner;
 	public static final int potionCombiner_default = 601;

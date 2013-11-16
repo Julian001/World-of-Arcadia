@@ -8,7 +8,7 @@ public class EnchantmentKnockup extends Enchantment {
 
 	protected EnchantmentKnockup(int par1, int par2) {
 		super(par1, par2, EnumEnchantmentType.weapon);
-		this.setName("knockup");
+		//this.setName("knockup");
 	}
 	
 	//Returns the minimal value of enchantability needed on the enchantment level passed.

@@ -1,14 +1,15 @@
 package arcadia.blocks;
 
-import cpw.mods.fml.common.registry.GameRegistry;
-import cpw.mods.fml.common.registry.LanguageRegistry;
+import net.minecraft.block.Block;
+import net.minecraft.block.BlockHalfSlab;
+import net.minecraft.block.material.Material;
+import net.minecraft.item.ItemStack;
 import arcadia.arcadia;
 import arcadia.items.ItemBlockRedRock;
 import arcadia.lib.References;
 import arcadia.lib.config.Ids;
-import net.minecraft.block.Block;
-import net.minecraft.block.material.Material;
-import net.minecraft.item.ItemStack;
+import cpw.mods.fml.common.registry.GameRegistry;
+import cpw.mods.fml.common.registry.LanguageRegistry;
 
 public class BlocksArcadia {
 	//----Ores----//
@@ -33,6 +34,13 @@ public class BlocksArcadia {
     //----Stairs----//
     public static Block stairRedRockCobble;
     public static Block stairRedRockBrick;
+    //----Slabs----//
+    public static BlockHalfSlab singleSlabRedRock;
+    public static BlockHalfSlab doubleSlabRedRock;
+    public static Block singleSlabRedRockCobble;
+    public static Block doubleSlabRedRockCobble;
+    public static Block singleSlabRedRockBrick;
+    public static Block doubleSlabRedRockBrick;
     //----PotionCombiner----//
     public static Block potionCombiner;
     public static Block potionCombiner_active;
@@ -61,6 +69,14 @@ public class BlocksArcadia {
 	   //----Stairs----//
 	   stairRedRockCobble = new BlockStair(Ids.stairRedRockCobble, BlocksArcadia.redRock, 1).setUnlocalizedName("stairRedRockCobble");
 	   stairRedRockBrick = new BlockStair(Ids.stairRedRockBrick, BlocksArcadia.redRock, 2).setUnlocalizedName("stairRedRockBrick");
+	   //----Slabs----//
+	 // woodDoubleSlab = (BlockHalfSlab)(new BlockWoodSlab(125, true)).setHardness(2.0F).setResistance(5.0F).setStepSound(soundWoodFootstep).setUnlocalizedName("woodSlab");
+       //TODO  woodSingleSlab = (BlockHalfSlab)(new BlockWoodSlab(126, false)).setHardness(2.0F).setResistance(5.0F).setStepSound(soundWoodFootstep).setUnlocalizedName("woodSlab");
+       
+	   singleSlabRedRock = (BlockHalfSlab)(new BlockSlab(Ids.singleSlabRedRock, false, null));//.setUnlocalizedName("singleSlabRedRock");//.setHardness(2.0F).setResistance(5.0F).setStepSound(Block.soundStoneFootstep).setUnlocalizedName("singleSlabRedRock");
+	   //MinecraftForge.setBlockHarvestLevel(singleSlabRedRock, "pickaxe", 1);
+	   doubleSlabRedRock = (BlockHalfSlab)(new BlockSlab(Ids.doubleSlabRedRock, true, null));//.setUnlocalizedName("doubleSlabRedRock");
+	   //MinecraftForge.setBlockHarvestLevel(doubleSlabRedRock, "pickaxe", 1);
 	   //-----PotionCombiner----//
 	   potionCombiner = new BlockPotionCombiner(Ids.potionCombiner, false, Material.iron).setCreativeTab(arcadia.tabArcadiaBlocks).setUnlocalizedName("potionCombiner");
 	   potionCombiner_active = new BlockPotionCombiner(Ids.potionCombiner_active, true, Material.iron).setUnlocalizedName("potionCombiner_active");
@@ -91,6 +107,9 @@ public class BlocksArcadia {
 	   //----Stairs----//
 	   GameRegistry.registerBlock(stairRedRockCobble, References.ID + stairRedRockCobble.getUnlocalizedName().substring(5));
 	   GameRegistry.registerBlock(stairRedRockBrick, References.ID + stairRedRockBrick.getUnlocalizedName().substring(5));
+	   //----Slabs----//
+	   GameRegistry.registerBlock(singleSlabRedRock, "singleSlabRedRock");
+	   GameRegistry.registerBlock(doubleSlabRedRock, "doubleSlabRedRock");
 	   //----PotionCombiner----//
 	   GameRegistry.registerBlock(potionCombiner, References.ID + potionCombiner.getUnlocalizedName().substring(5));
 	   GameRegistry.registerBlock(potionCombiner_active, References.ID + potionCombiner_active.getUnlocalizedName().substring(5));
@@ -124,6 +143,9 @@ public class BlocksArcadia {
   	   //----Stairs----//
   	   LanguageRegistry.addName(stairRedRockCobble, "Red Rock Cobble Stair");
  	   LanguageRegistry.addName(stairRedRockBrick, "Red Rock Brick Stair");
+ 	   //----Slabs----//
+ 	   LanguageRegistry.addName(singleSlabRedRock, "Red Rock Slab");
+ 	   LanguageRegistry.addName(doubleSlabRedRock, "Red Rock Double Slab");
   	   //----PotionCombiner----//
   	   LanguageRegistry.addName(potionCombiner, "Potion Combiner");
 	   
