@@ -162,13 +162,13 @@ public class arcadia
 
        }
        
-       @ServerStarting
+       /*@ServerStarting
        public void serverLoad(FMLServerStartingEvent event) {
     	   event.registerServerCommand(new CommandHealArcadia());
     	   event.registerServerCommand(new CommandEnderChest());
     	   event.registerServerCommand(new CommandDayArcadia());
     	   event.registerServerCommand(new CommandSpeedArcadia());
-       }
+       }*/
        
               
        private void registerBlocks(){
