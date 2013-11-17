@@ -7,21 +7,28 @@ import net.minecraft.world.biome.SpawnListEntry;
 import net.minecraft.world.gen.feature.WorldGenBigTree;
 import net.minecraft.world.gen.feature.WorldGenForest;
 import net.minecraft.world.gen.feature.WorldGenTrees;
+import arcadia.entity.EntityBandit;
+import arcadia.entity.EntityBanditArcher;
 
-public class BiomeGenWasteland extends BiomeGenBase {
-
+public class BiomeGenWasteland extends BiomeGenBase
+{
 	@SuppressWarnings("unchecked")
 	public BiomeGenWasteland(int par1) {
 		super(par1);
-		//this.topBlock = (byte)BlocksArcadia.redRock.blockID;
-		this.topBlock = (byte)Block.sandStone.blockID;
-		//this.fillerBlock = (byte)BlocksArcadia.redRock.blockID;
-		this.fillerBlock = (byte)Block.sandStone.blockID;
+		this.topBlock = (byte) Block.hardenedClay.blockID;
+		this.fillerBlock = (byte) Block.hardenedClay.blockID;
+		
 		this.spawnableCreatureList.clear();
 		this.spawnableMonsterList.clear();
 		this.spawnableWaterCreatureList.clear();
 		this.spawnableCreatureList.add(new SpawnListEntry(EntityCow.class, 5, 10, 10));
-		//this.spawnableCreatureList.add(new SpawnListEntry(EntityRPGBandit.class, 5, 10, 10));
+		this.spawnableMonsterList.add(new SpawnListEntry(EntityBandit.class, 5, 10, 10));
+		this.spawnableMonsterList.add(new SpawnListEntry(EntityBanditArcher.class, 5, 10, 10));
+		
+		this.theBiomeDecorator.deadBushPerChunk = 5;
+		this.theBiomeDecorator.reedsPerChunk = 0;
+        this.theBiomeDecorator.cactiPerChunk = 0;
+        
 		this.waterColorMultiplier = 86777215;
 		this.worldGeneratorTrees = new WorldGenTrees(false);
         this.worldGeneratorBigTree = new WorldGenBigTree(false);
